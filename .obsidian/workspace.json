@@ -1,0 +1,228 @@
+{
+  "main": {
+    "id": "3740e0911f731824",
+    "type": "split",
+    "children": [
+      {
+        "id": "6e72ad1944a66b3c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4b5534ca96fbcae2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "todo.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "todo"
+            }
+          },
+          {
+            "id": "f3afb41b3410dd9d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "actix.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "actix"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "617cb47b60380ccd",
+    "type": "split",
+    "children": [
+      {
+        "id": "6526385c0a248881",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e9ed5b1cae8e6309",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "e8a6a6e341efc638",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "8341681d95f072af",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "1a3066a956e4aa60",
+    "type": "split",
+    "children": [
+      {
+        "id": "67c5e0f248ddc6ce",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7162adf0155c6d4f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Progress tracking.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Progress tracking"
+            }
+          },
+          {
+            "id": "a8ff1a681de61c93",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Progress tracking.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Progress tracking"
+            }
+          },
+          {
+            "id": "1e72b95049783b40",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "67220358875812dd",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Progress tracking.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Progress tracking"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "4b5534ca96fbcae2",
+  "lastOpenFiles": [
+    "Project Overview-Readme(maybe).md",
+    "todo.md",
+    "actix.md",
+    "Progress tracking.md",
+    "Database scratchpad.md",
+    "portfolio_front/node_modules/send/node_modules/debug/node_modules/ms/readme.md",
+    "portfolio_front/node_modules/send/node_modules/debug/node_modules/ms/package.json",
+    "portfolio_front/node_modules/send/node_modules/debug/node_modules/ms/license.md",
+    "portfolio_front/node_modules/react-router/dist/development/lib/types/route-module.js",
+    "portfolio_front/node_modules/react-router/dist/production/lib/types/route-module.mjs",
+    "portfolio_front/node_modules/send/node_modules/debug/node_modules/ms/index.js",
+    "portfolio_front/node_modules/react-router/dist/development/lib/types/route-module.mjs",
+    "portfolio_front/node_modules/react-router/dist/development/lib/types/route-module.d.mts",
+    "portfolio_front/node_modules/react-router/dist/development/lib/types/route-module.d.ts",
+    "portfolio_front/node_modules/react-router/dist/production/lib/types/route-module.d.mts",
+    "portfolio_front/node_modules/react-router/dist/production/lib/types/route-module.js",
+    "portfolio_front/node_modules/react-router/dist/production/lib/types/route-module.d.ts",
+    "portfolio_front/node_modules/undici/docs/docs/best-practices/writing-tests.md",
+    "portfolio_front/node_modules/undici/docs/docs/best-practices/proxy.md",
+    "portfolio_front/node_modules/undici/docs/docs/best-practices/mocking-request.md",
+    "portfolio_front/node_modules/undici/docs/docs/best-practices/client-certificate.md",
+    "portfolio_front/node_modules/undici/docs/docs/api/RetryAgent.md",
+    "portfolio_front/node_modules/undici/docs/docs/api/WebSocket.md",
+    "portfolio_front/node_modules/undici/docs/docs/api/Util.md",
+    "portfolio_front/node_modules/undici/docs/docs/api/RetryHandler.md",
+    "portfolio_front/node_modules/undici/docs/docs/api/RedirectHandler.md",
+    "portfolio_front/node_modules/undici/docs/docs/api/ProxyAgent.md",
+    "portfolio_front/node_modules/undici/docs/docs/api/PoolStats.md",
+    "portfolio_front/node_modules/undici/docs/docs/api/Pool.md",
+    "portfolio_front/node_modules/undici/docs/docs/api/MockPool.md",
+    "portfolio_front/node_modules/undici/docs/docs/api/MockErrors.md",
+    "portfolio_front/node_modules/undici/docs/docs/api/MockClient.md",
+    "portfolio_front/node_modules/undici/docs/docs/api/MockAgent.md",
+    "portfolio_front/node_modules/undici/docs/docs/api/Fetch.md",
+    "portfolio_front/node_modules/undici/docs/docs/api/EnvHttpProxyAgent.md",
+    "portfolio_front/node_modules/undici/docs/docs/api/EventSource.md",
+    "portfolio_front/node_modules/retry/equation.gif",
+    "portfolio_front/app/welcome/logo-light.svg",
+    "portfolio_front/app/welcome/logo-dark.svg",
+    "Untitled.canvas"
+  ]
+}

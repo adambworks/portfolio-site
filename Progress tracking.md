@@ -1,0 +1,6 @@
+- 5/2/2025
+	- Started project
+	- set up react and vite
+	- set up obsdian
+	- set up postgres
+	- set up pg admin
