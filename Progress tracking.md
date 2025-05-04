@@ -3,4 +3,9 @@
 	- set up react and vite
 	- set up obsdian
 	- set up postgres
+	- create table script
 	- set up pg admin
+- 5/3/25
+	- setup rust 
+	- starting setup diesel
+- 

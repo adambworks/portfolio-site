@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "todo.md",
+                "file": "Progress tracking.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "todo"
+              "title": "Progress tracking"
             }
           },
           {
@@ -184,23 +184,24 @@
   },
   "active": "4b5534ca96fbcae2",
   "lastOpenFiles": [
-    "Project Overview-Readme(maybe).md",
+    "portfolio_back/src/models.rs",
     "todo.md",
+    "portfolio_back/src/schema.rs",
+    "portfolio_back/migrations/2025-05-03-173747_create_posts/down.sql",
+    "portfolio_back/migrations/2025-05-03-173747_create_posts/up.sql",
+    "portfolio_back/migrations/2025-05-03-173747_create_posts",
+    "portfolio_back/migrations/00000000000000_diesel_initial_setup/down.sql",
+    "portfolio_back/migrations/00000000000000_diesel_initial_setup/up.sql",
+    "portfolio_back/migrations/00000000000000_diesel_initial_setup",
+    "portfolio_back/diesel.toml",
+    "portfolio_back/migrations",
+    "portfolio_back/target/debug/incremental/portfolio_back-1v3v7h6yaw9m0/s-h70c067f2i-0bfz13b-98kkq5afufglf2mg1qk74i5a6/work-products.bin",
+    "Project Overview-Readme(maybe).md",
     "actix.md",
     "Progress tracking.md",
     "Database scratchpad.md",
     "portfolio_front/node_modules/send/node_modules/debug/node_modules/ms/readme.md",
-    "portfolio_front/node_modules/send/node_modules/debug/node_modules/ms/package.json",
     "portfolio_front/node_modules/send/node_modules/debug/node_modules/ms/license.md",
-    "portfolio_front/node_modules/react-router/dist/development/lib/types/route-module.js",
-    "portfolio_front/node_modules/react-router/dist/production/lib/types/route-module.mjs",
-    "portfolio_front/node_modules/send/node_modules/debug/node_modules/ms/index.js",
-    "portfolio_front/node_modules/react-router/dist/development/lib/types/route-module.mjs",
-    "portfolio_front/node_modules/react-router/dist/development/lib/types/route-module.d.mts",
-    "portfolio_front/node_modules/react-router/dist/development/lib/types/route-module.d.ts",
-    "portfolio_front/node_modules/react-router/dist/production/lib/types/route-module.d.mts",
-    "portfolio_front/node_modules/react-router/dist/production/lib/types/route-module.js",
-    "portfolio_front/node_modules/react-router/dist/production/lib/types/route-module.d.ts",
     "portfolio_front/node_modules/undici/docs/docs/best-practices/writing-tests.md",
     "portfolio_front/node_modules/undici/docs/docs/best-practices/proxy.md",
     "portfolio_front/node_modules/undici/docs/docs/best-practices/mocking-request.md",
@@ -219,7 +220,6 @@
     "portfolio_front/node_modules/undici/docs/docs/api/MockAgent.md",
     "portfolio_front/node_modules/undici/docs/docs/api/Fetch.md",
     "portfolio_front/node_modules/undici/docs/docs/api/EnvHttpProxyAgent.md",
-    "portfolio_front/node_modules/undici/docs/docs/api/EventSource.md",
     "portfolio_front/node_modules/retry/equation.gif",
     "portfolio_front/app/welcome/logo-light.svg",
     "portfolio_front/app/welcome/logo-dark.svg",
