@@ -8,4 +8,7 @@
 - 5/3/25
 	- setup rust 
 	- starting setup diesel
-- 
+- 5/6/25
+	- counting diesel tutorial setting up table schema in rust
+- 5/7/25
+	- Can create and read from database with diesel now

@@ -11,7 +11,7 @@ CREATE TABLE chapters (
     id SERIAL PRIMARY KEY,
     project_id INTEGER NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
     name TEXT NOT NULL,
-    date_range DATERANGE  -- stores a range like [start, end]
+    date_started DATE  
 );
 
 -- Entries table

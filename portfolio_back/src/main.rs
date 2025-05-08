@@ -1,9 +1,10 @@
 pub mod models;
 pub mod schema;
+use chrono::NaiveDate;
 use diesel::prelude::*;
 use dotenvy::dotenv;
 use std::env;
-
+use self::models::*;
 
 
 
@@ -18,12 +19,34 @@ pub fn establish_connection() -> PgConnection {
 }
 
 
+
+
+
+pub fn create_project(conn: &mut PgConnection, name: &str,date_started: &NaiveDate, overview: Option<&str>) -> Project {
+    use crate::schema::projects;
+
+    let new_project = NewProject { name,date_started, overview };
+
+    diesel::insert_into(projects::table)
+        .values(&new_project)
+        .returning(Project::as_returning())
+        .get_result(conn)
+        .expect("Error saving new post")
+}
+
 fn main() {
     use self::schema::projects::dsl::*;
 
     let connection = &mut establish_connection();
+
+    //let test_date=NaiveDate::from_ymd_opt(2025,5,1);
+   // let test_overview = Some("test_overview");
+   // create_project(connection, "test", &test_date.unwrap_or_else(|| {panic!()}), test_overview);
+
+
+
     let results = projects
-        .filter(published.eq(true))
+      //  .filter(published.eq(true))
         .limit(5)
         .select(Project::as_select())
         .load(connection)
@@ -31,8 +54,8 @@ fn main() {
 
     println!("Displaying {} projects", results.len());
     for project in results {
-        println!("{}", post.title);
+        println!("{}", project.name);
         println!("-----------\n");
-        println!("{}", post.body);
+        println!("{:?}", Some(project.overview));
     }
 }

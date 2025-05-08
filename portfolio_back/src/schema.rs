@@ -5,7 +5,7 @@ diesel::table! {
         id -> Int4,
         project_id -> Int4,
         name -> Text,
-        date_range -> Nullable<Daterange>,
+        date_started -> Nullable<Date>,
     }
 }
 
