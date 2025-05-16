@@ -1,8 +1,9 @@
 use diesel::prelude::*;
 use chrono::NaiveDate;
 use crate::schema::*;
+use serde::Serialize;
 
-#[derive(Queryable, Selectable)]
+#[derive(Queryable, Selectable, Serialize)]
 #[diesel(table_name = projects)]
 #[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct Project {

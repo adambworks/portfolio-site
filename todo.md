@@ -1,6 +1,6 @@
  - [x] Create database layout
- - [ ] get layout into db
- - [ ] setup rust and [[actix]]
- - [ ] learn how to access data from actix
+ - [x] get layout into db
+ - [x] setup rust and [[actix]]
+ - [x] learn how to access data from actix
  - [ ] create routs in actix
  - [ ] learn how to access actix routs in react

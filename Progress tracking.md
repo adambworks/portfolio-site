@@ -12,3 +12,7 @@
 	- counting diesel tutorial setting up table schema in rust
 - 5/7/25
 	- Can create and read from database with diesel now
+- 5/15/25
+	- setupping up actix and testing basic routes
+- 5/16/25
+	- have created a route that interacts with the db that list all projects
