@@ -9,10 +9,8 @@ use dotenvy::dotenv;
 use std::env;
 
 //actix imports
-use actix_web::{web, App, HttpServer};
-
-
-
+use actix_cors::Cors;
+use actix_web::{http::header, web, App, HttpServer};
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -22,10 +20,15 @@ async fn main() -> std::io::Result<()> {
     let pool = init_pool(&database_url);
 
     HttpServer::new(move || {
-        App::new().app_data(web::Data::new(pool.clone())).service(
-            web::scope("api")
-                .service(self::routes::projects::list_projects)
-        )
+        let cors = Cors::default()
+            .allowed_origin("http://localhost:5173")
+            .allowed_methods(vec!["GET", "POST", "PUT", "DELETE"])
+            .allowed_headers(vec![header::AUTHORIZATION, header::CONTENT_TYPE])
+            .supports_credentials();
+        App::new()
+            .wrap(cors)
+            .app_data(web::Data::new(pool.clone()))
+            .service(web::scope("api").service(self::routes::projects::list_projects))
     })
     .bind(("127.0.0.1", 8080))?
     .run()

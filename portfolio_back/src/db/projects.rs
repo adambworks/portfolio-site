@@ -51,3 +51,5 @@ pub(crate) fn get_all_projects(conn: &mut PgConnection) -> Result<Vec<Project>, 
     //.expect("Error loading projects");//todo should not use expect
     return results;
 }
+
+
