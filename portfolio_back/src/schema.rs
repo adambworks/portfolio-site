@@ -6,6 +6,7 @@ diesel::table! {
         project_id -> Int4,
         name -> Text,
         date_started -> Nullable<Date>,
+        index -> Int4,
     }
 }
 
@@ -25,6 +26,7 @@ diesel::table! {
         name -> Text,
         date_started -> Date,
         overview -> Nullable<Text>,
+        slug -> Text,
     }
 }
 

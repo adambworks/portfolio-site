@@ -3,7 +3,8 @@ CREATE TABLE projects (
     id SERIAL PRIMARY KEY,
     name TEXT UNIQUE NOT NULL,
     date_started DATE NOT NULL,
-    overview TEXT
+    overview TEXT,
+    slug TEXT UNIQUE NOT NULL
 );
 
 -- Chapters table
@@ -11,7 +12,8 @@ CREATE TABLE chapters (
     id SERIAL PRIMARY KEY,
     project_id INTEGER NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
     name TEXT NOT NULL,
-    date_started DATE  
+    date_started DATE,
+    index INTEGER NOT NULL
 );
 
 -- Entries table

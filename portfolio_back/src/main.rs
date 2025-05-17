@@ -28,7 +28,10 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .wrap(cors)
             .app_data(web::Data::new(pool.clone()))
-            .service(web::scope("api").service(self::routes::projects::list_projects))
+            .service(web::scope("api")
+                .service(self::routes::projects::list_projects)
+                .service(self::routes::projects::get_project_by_slug)
+            )
     })
     .bind(("127.0.0.1", 8080))?
     .run()

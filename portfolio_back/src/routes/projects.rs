@@ -10,3 +10,13 @@ pub(crate) async fn list_projects(pool: web::Data<DBPool>) -> impl Responder {
         Err(_) => HttpResponse::InternalServerError().body("Error loading projects"),
     }
 }
+
+#[get("/projects/{slug}")]
+pub(crate) async fn get_project_by_slug(pool: web::Data<DBPool>,path: web::Path<String>) -> impl Responder {
+    let slug = path.into_inner();
+    let mut conn = pool.get().expect("couldn't get DB connection");
+    match crate::db::projects::find_project_by_slug(&mut conn,&slug) {
+        Ok(project) => HttpResponse::Ok().json(project),
+        Err(_) => HttpResponse::InternalServerError().body("Error loading projects"),
+    }
+}

@@ -2,5 +2,6 @@
  - [x] get layout into db
  - [x] setup rust and [[actix]]
  - [x] learn how to access data from actix
- - [ ] create routs in actix
- - [ ] learn how to access actix routs in react
+ - [x] create routs in actix
+ - [x] learn how to access actix routs in react
+ - [x] need to added slugifyed name to DB

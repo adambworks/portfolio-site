@@ -4,4 +4,5 @@ export type Project = {
   name: string;
   date_started: string;
   overview: string;
+  slug: string
 };

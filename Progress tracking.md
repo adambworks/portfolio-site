@@ -16,3 +16,7 @@
 	- setupping up actix and testing basic routes
 - 5/16/25
 	- have created a route that interacts with the db that list all projects
+	- read data from route in in react and showed it on a page
+- 5/17/25
+	- added slug field to project and index field to chapter 
+	- can now click on a link to each project to bring up a project page

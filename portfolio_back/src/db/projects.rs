@@ -3,13 +3,14 @@ use chrono::NaiveDate;
 use diesel::prelude::*;
 
 
-fn create_project(conn: &mut PgConnection, name: &str, date_started: &NaiveDate, overview: Option<&str>) {
+fn create_project(conn: &mut PgConnection, name: &str, date_started: &NaiveDate, overview: Option<&str>, slug: &str) {
     use crate::schema::projects;
 
     let new_project = NewProject {
         name,
         date_started,
         overview,
+        slug,
     };
 
     diesel::insert_into(projects::table)
@@ -19,13 +20,12 @@ fn create_project(conn: &mut PgConnection, name: &str, date_started: &NaiveDate,
         .expect("Error saving new post");
 }
 
-fn find_project_id(conn: &mut PgConnection, project_name: &str) -> i32 {
-    use crate::schema::projects::dsl::{name, projects};
-    let result: Project = projects
-        .filter(name.eq(project_name))
-        .first(conn)
-        .expect("Error loading projects");
-    return result.id;
+pub(crate) fn find_project_by_slug(conn: &mut PgConnection, project_slug: &str) -> Result<Project, diesel::result::Error> {
+    use crate::schema::projects::dsl::{slug, projects};
+    let result = projects
+        .filter(slug.eq(project_slug))
+        .first(conn);
+    return result;
 }
 
 fn edit_project_overview(conn: &mut PgConnection, project_id: i32, new_overview: &str) {
