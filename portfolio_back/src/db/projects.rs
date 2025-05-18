@@ -21,7 +21,7 @@ fn create_project(conn: &mut PgConnection, name: &str, date_started: &NaiveDate,
         .expect("Error saving new post");
 }
 
-pub(crate) fn find_project_by_slug(conn: &mut PgConnection, project_slug: &str) -> Result<Project, diesel::result::Error> {
+pub(crate) fn select_project_by_slug(conn: &mut PgConnection, project_slug: &str) -> Result<Project, diesel::result::Error> {
     use crate::schema::projects::dsl::{slug, projects};
     let result = projects
         .filter(slug.eq(project_slug))
@@ -40,7 +40,7 @@ fn edit_project_overview(conn: &mut PgConnection, project_id: i32, new_overview:
     println!("update project overview {}", project.name);
 }
 
-pub(crate) fn get_all_projects(conn: &mut PgConnection) -> Result<Vec<Project>, diesel::result::Error> {
+pub(crate) fn select_all_projects(conn: &mut PgConnection) -> Result<Vec<Project>, diesel::result::Error> {
     //projects.load::<Project>(conn);
     //atertivative one line way
 

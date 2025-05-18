@@ -3,7 +3,7 @@ use chrono::NaiveDate;
 use crate::schema::*;
 use serde::Serialize;
 
-#[derive(Queryable, Selectable, Serialize)]
+#[derive(Queryable, Selectable, Serialize,Identifiable)]
 #[diesel(table_name = projects)]
 #[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct Project {
@@ -15,9 +15,10 @@ pub struct Project {
     pub image: Option<String>,
 }
 
-#[derive(Queryable, Selectable)]
+#[derive(Queryable, Selectable, Serialize, Associations,Identifiable)]
 #[diesel(table_name = chapters)]
 #[diesel(check_for_backend(diesel::pg::Pg))]
+#[diesel(belongs_to(Project))]
 pub struct Chapter {
     pub id: i32,
     pub project_id: i32,
@@ -26,15 +27,17 @@ pub struct Chapter {
     pub index: i32,
 }
 
-#[derive(Queryable, Selectable)]
+#[derive(Queryable, Selectable, Serialize, Associations,Identifiable)]
 #[diesel(table_name = entries)]
 #[diesel(check_for_backend(diesel::pg::Pg))]
+#[diesel(belongs_to(Chapter))]
 pub struct Entry {
     pub id: i32,
     pub chapter_id: i32,
     pub text: Option<String>,
     pub image: Option<String>,
     pub date: Option<NaiveDate>,
+    pub index: i32
 }
 
 //Insertion tables
@@ -64,4 +67,5 @@ pub struct NewEntry<'a> {
     pub text: &'a str,
     pub image: Option<&'a str>,
     pub date: Option<NaiveDate>,
+    pub index: &'a i32
 }

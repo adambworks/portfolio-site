@@ -21,4 +21,6 @@
 	- added slug field to project and index field to chapter 
 	- can now click on a link to each project to bring up a project page
 	- added some style with [[tailwind]] to projects page
-	- 
+- 5/18/25
+	- Project page now shows chapters, 
+	- chapter can be clicked on to bring up the chapter page which shows its entries

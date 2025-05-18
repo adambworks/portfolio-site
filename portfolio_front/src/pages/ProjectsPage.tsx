@@ -17,7 +17,7 @@ export default function ProjectsPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {projects.map((project) => (
           <Link
-            key={project.id}
+            key={project.slug}
             to={`/projects/${project.slug}`}
             className="block p-4 rounded-lg shadow hover:shadow-md transition bg-white border border-gray-200"
           >

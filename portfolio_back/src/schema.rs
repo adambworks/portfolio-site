@@ -17,6 +17,7 @@ diesel::table! {
         text -> Nullable<Text>,
         image -> Nullable<Text>,
         date -> Nullable<Date>,
+        index -> Int4,
     }
 }
 

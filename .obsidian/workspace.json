@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Progress tracking.md",
+                "file": "todo.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Progress tracking"
+              "title": "todo"
             }
           },
           {
@@ -88,8 +88,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -185,21 +184,20 @@
   },
   "active": "4b5534ca96fbcae2",
   "lastOpenFiles": [
-    "portfolio_front/node_modules/browserslist/index.d.ts",
-    "portfolio_front/node_modules/@typescript-eslint/scope-manager/package.json",
-    "portfolio_front/node_modules/@typescript-eslint/visitor-keys/dist/visitor-keys.js",
-    "portfolio_front/node_modules/@typescript-eslint/visitor-keys/dist/visitor-keys.d.ts.map",
-    "portfolio_front/node_modules/@typescript-eslint/visitor-keys/dist/index.js",
-    "portfolio_front/node_modules/@typescript-eslint/visitor-keys/dist/get-keys.js",
-    "portfolio_front/node_modules/@typescript-eslint/visitor-keys/dist/get-keys.d.ts.map",
-    "portfolio_front/node_modules/@typescript-eslint/visitor-keys/dist/visitor-keys.d.ts",
-    "portfolio_front/node_modules/@typescript-eslint/visitor-keys/dist/index.d.ts.map",
-    "portfolio_front/node_modules/@typescript-eslint/visitor-keys/dist/index.d.ts",
-    "portfolio_front/node_modules/@typescript-eslint/visitor-keys/dist/get-keys.d.ts",
+    "Progress tracking.md",
+    "portfolio_back/target/debug/deps/portfolio_back.pdb",
+    "portfolio_back/target/debug/deps/portfolio_back.exe",
+    "portfolio_back/target/debug/incremental/portfolio_back-27sq8i2j1z3hc/s-h7h1xd0sfc-17ycfz0-9rdk2ro9schx64kmmpnpr2ocn/query-cache.bin",
+    "portfolio_back/target/debug/incremental/portfolio_back-27sq8i2j1z3hc/s-h7h1xd0sfc-17ycfz0-9rdk2ro9schx64kmmpnpr2ocn/work-products.bin",
+    "portfolio_back/target/debug/incremental/portfolio_back-27sq8i2j1z3hc/s-h7h1xd0sfc-17ycfz0-9rdk2ro9schx64kmmpnpr2ocn/f1xvx5afrvql60qps11um262a.o",
+    "portfolio_back/target/debug/incremental/portfolio_back-27sq8i2j1z3hc/s-h7h1xd0sfc-17ycfz0-9rdk2ro9schx64kmmpnpr2ocn/f1g8x0yxuxdrjmb0cibuavnag.o",
+    "portfolio_back/target/debug/incremental/portfolio_back-27sq8i2j1z3hc/s-h7h1xd0sfc-17ycfz0-9rdk2ro9schx64kmmpnpr2ocn/f0mjgh4u6qzpdplnzet8uif9j.o",
+    "portfolio_back/target/debug/incremental/portfolio_back-27sq8i2j1z3hc/s-h7h1xd0sfc-17ycfz0-9rdk2ro9schx64kmmpnpr2ocn/ezeetoe2clivpf2bfkdw4lvwq.o",
+    "portfolio_back/target/debug/incremental/portfolio_back-27sq8i2j1z3hc/s-h7h1xd0sfc-17ycfz0-9rdk2ro9schx64kmmpnpr2ocn/ev15kpqvbl9kkjb7z9rtm81m9.o",
+    "portfolio_back/target/debug/incremental/portfolio_back-27sq8i2j1z3hc/s-h7h1xd0sfc-17ycfz0-9rdk2ro9schx64kmmpnpr2ocn/euhdujjukz8lp4hg69b3rq4d5.o",
     "Project Overview-Readme(maybe).md",
     "README.md",
     "todo.md",
-    "Progress tracking.md",
     "portfolio_front/node_modules/prettier-plugin-tailwindcss/dist/licenses/@shopify/prettier-plugin-liquid/README.md",
     "portfolio_front/node_modules/prettier-plugin-tailwindcss/dist/licenses/prettier-plugin-sort-imports/README.md",
     "portfolio_front/node_modules/prettier-plugin-tailwindcss/dist/licenses/prettier-plugin-style-order/README.md",

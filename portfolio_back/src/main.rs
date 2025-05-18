@@ -33,6 +33,9 @@ async fn main() -> std::io::Result<()> {
                 .service(self::routes::projects::list_projects)
                 .service(self::routes::projects::get_project_by_slug)
                 .service(Files::new("/images","./static/images").show_files_listing())
+                .service(self::routes::chapters::get_chapters_by_id)
+                .service(self::routes::chapters::get_chapter_by_slug_index)
+                .service(self::routes::entries::get_entries_by_id)
             )
     })
     .bind(("127.0.0.1", 8080))?

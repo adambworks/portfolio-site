@@ -5,3 +5,5 @@
  - [x] create routs in actix
  - [x] learn how to access actix routs in react
  - [x] need to added slugifyed name to DB
+ - [ ] forward and back page on a chapter page
+ - [ ] landing page

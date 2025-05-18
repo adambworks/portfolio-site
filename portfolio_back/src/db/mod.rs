@@ -1,4 +1,6 @@
 pub mod projects;
+pub mod chapters;
+pub mod entries;
 
 use diesel::pg::PgConnection;
 use diesel::r2d2::{self, ConnectionManager};

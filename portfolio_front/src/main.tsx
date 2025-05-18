@@ -4,6 +4,7 @@ import App from "./App.tsx";
 import { BrowserRouter, Routes, Route } from "react-router";
 import ProjectsPage from "./pages/ProjectsPage.tsx";
 import ProjectDetailPage from "./pages/ProjectDetailPage.tsx";
+import ChapterPage from "./pages/chapterpage.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
@@ -11,6 +12,7 @@ createRoot(document.getElementById("root")!).render(
       <Route path="/test" element={<App />} />
       <Route path="/projects" element={<ProjectsPage />} />
       <Route path="/projects/:slug" element={<ProjectDetailPage />} />
+      <Route path="/projects/:slug/chapter/:chapterIndex" element={<ChapterPage />}/>
     </Routes>
   </BrowserRouter>
 );
