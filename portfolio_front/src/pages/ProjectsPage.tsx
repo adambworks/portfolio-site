@@ -11,18 +11,25 @@ export default function ProjectsPage() {
   }, []);
 
   return (
-    <div className="p-4">
-      <h1 className="text-xl font-bold mb-4">Projects</h1>
-      <ul>
+    <div className="p-4 max-w-6xl mx-auto">
+      <h1 className="text-2xl font-bold mb-6">Projects</h1>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {projects.map((project) => (
-          <li key={project.id} className="mb-2">
-            <Link to={`/projects/${project.slug}`} className="text-blue-500 hover:underline">
-                <strong>{project.name}</strong> – {project.date_started}
-            </Link>{" "}
-            <p>{project.overview}</p>
-          </li>
+          <Link
+            key={project.id}
+            to={`/projects/${project.slug}`}
+            className="block p-4 rounded-lg shadow hover:shadow-md transition bg-white border border-gray-200"
+          >
+            {project.image !== null && project.image!= "" &&(
+             <img src={`http://localhost:8080/api/images/${project.image}`} alt="" className="mb-2 w-full h-40 object-cover rounded" /> 
+            )}
+            <h2 className="text-lg font-semibold mb-1">{project.name}</h2>
+            <p className="text-sm text-gray-500 mb-2">{project.date_started}</p>
+            <p className="text-gray-700 text-sm">{project.overview}</p>
+          </Link>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

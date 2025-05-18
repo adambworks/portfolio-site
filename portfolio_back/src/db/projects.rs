@@ -3,7 +3,7 @@ use chrono::NaiveDate;
 use diesel::prelude::*;
 
 
-fn create_project(conn: &mut PgConnection, name: &str, date_started: &NaiveDate, overview: Option<&str>, slug: &str) {
+fn create_project(conn: &mut PgConnection, name: &str, date_started: &NaiveDate, overview: Option<&str>, slug: &str,image: Option<&str>) {
     use crate::schema::projects;
 
     let new_project = NewProject {
@@ -11,6 +11,7 @@ fn create_project(conn: &mut PgConnection, name: &str, date_started: &NaiveDate,
         date_started,
         overview,
         slug,
+        image
     };
 
     diesel::insert_into(projects::table)

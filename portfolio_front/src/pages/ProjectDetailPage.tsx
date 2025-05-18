@@ -17,9 +17,13 @@ export default function ProjectDetailPage() {
 
   return (
     <div className="p-4">
+        {project.image !== null && project.image!= "" &&(
+             <img src={`http://localhost:8080/api/images/${project.image}`} alt="" className="mb-2 w-full h-40 object-cover rounded" /> 
+            )}
       <h1 className="text-2xl font-bold mb-2">{project.name}</h1>
       <p className="text-gray-500 mb-4">{project.date_started}</p>
-      <p>{project.overview}</p>
+      <p>overview: {project.overview}</p>
+    
     </div>
   );
 }

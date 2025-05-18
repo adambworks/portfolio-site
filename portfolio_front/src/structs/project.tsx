@@ -4,5 +4,6 @@ export type Project = {
   name: string;
   date_started: string;
   overview: string;
-  slug: string
+  slug: string;
+  image: string;
 };

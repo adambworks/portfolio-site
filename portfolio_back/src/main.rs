@@ -11,6 +11,7 @@ use std::env;
 //actix imports
 use actix_cors::Cors;
 use actix_web::{http::header, web, App, HttpServer};
+use actix_files::Files;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -31,6 +32,7 @@ async fn main() -> std::io::Result<()> {
             .service(web::scope("api")
                 .service(self::routes::projects::list_projects)
                 .service(self::routes::projects::get_project_by_slug)
+                .service(Files::new("/images","./static/images").show_files_listing())
             )
     })
     .bind(("127.0.0.1", 8080))?

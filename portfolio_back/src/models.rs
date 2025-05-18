@@ -12,6 +12,7 @@ pub struct Project {
     pub date_started: NaiveDate,
     pub overview: Option<String>,
     pub slug: String,
+    pub image: Option<String>,
 }
 
 #[derive(Queryable, Selectable)]
@@ -44,6 +45,7 @@ pub struct NewProject<'a>{
     pub date_started: &'a NaiveDate,
     pub overview: Option<&'a str>,
     pub slug: &'a str,
+    pub image: Option<&'a str>
 }
 
 #[derive(Insertable)]

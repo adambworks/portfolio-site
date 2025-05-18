@@ -4,7 +4,8 @@ CREATE TABLE projects (
     name TEXT UNIQUE NOT NULL,
     date_started DATE NOT NULL,
     overview TEXT,
-    slug TEXT UNIQUE NOT NULL
+    slug TEXT UNIQUE NOT NULL,
+    image TEXT
 );
 
 -- Chapters table

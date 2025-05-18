@@ -20,3 +20,5 @@
 - 5/17/25
 	- added slug field to project and index field to chapter 
 	- can now click on a link to each project to bring up a project page
+	- added some style with [[tailwind]] to projects page
+	- 

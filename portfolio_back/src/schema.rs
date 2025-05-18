@@ -27,6 +27,7 @@ diesel::table! {
         date_started -> Date,
         overview -> Nullable<Text>,
         slug -> Text,
+        image -> Nullable<Text>,
     }
 }
 
