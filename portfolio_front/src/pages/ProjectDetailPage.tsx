@@ -5,6 +5,18 @@ import type { Project } from "../structs/project";
 import type { Chapter } from "../structs/chapter";
 import { fetchChapters } from "../api/chapters";
 
+
+function chapter_descriptor(project: Project, chapter_index: number){
+    if (project.chapter_descriptor !=null){
+        return (<h2>{project.chapter_descriptor}: {chapter_index}</h2>);
+
+    }
+    else{
+        return;
+    }    
+}
+
+
 export default function ProjectDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const [project, setProject] = useState<Project | null>(null);
@@ -23,6 +35,8 @@ export default function ProjectDetailPage() {
 
   if (!project) return <div className="p-4"> Invalid project</div>;
 
+
+
   const chapterList = chapters.length > 0 ? (
     chapters.map((chapter) => (
       <Link
@@ -30,7 +44,7 @@ export default function ProjectDetailPage() {
         to={`/projects/${project.slug}/chapter/${chapter.index}`}
         className="block p-2 rounded-lg shadow hover:shadow-md transition bg-white border border-gray-200"
       >
-        <h2>Phase: {chapter.index}</h2>
+        {chapter_descriptor(project,chapter.index)}
         <h2 className="text-lg font-semibold mb-1">{chapter.name}</h2>
       </Link>
     ))
@@ -40,6 +54,7 @@ export default function ProjectDetailPage() {
 
   return (
     <div className="p-4">
+        debug project id: {project.id}
       {project.image !== null && project.image != "" && (
         <img
           src={`http://localhost:8080/api/images/${project.image}`}

@@ -6,4 +6,5 @@ export type Project = {
   overview: string | null;
   slug: string;
   image: string | null;
+  chapter_descriptor: string | null; 
 };

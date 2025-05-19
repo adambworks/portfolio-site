@@ -5,7 +5,8 @@ CREATE TABLE projects (
     date_started DATE NOT NULL,
     overview TEXT,
     slug TEXT UNIQUE NOT NULL,
-    image TEXT
+    image TEXT,
+    chapter_descriptor TEXT --like section phase ect
 );
 
 -- Chapters table
@@ -14,7 +15,7 @@ CREATE TABLE chapters (
     project_id INTEGER NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
     name TEXT NOT NULL,
     date_started DATE,
-    index INTEGER UNIQUE NOT NULL
+    index INTEGER NOT NULL
 );
 
 -- Entries table
@@ -24,6 +25,6 @@ CREATE TABLE entries (
     text TEXT,
     image TEXT, -- could be a URL or file path
     date DATE,  -- optional
-    index INTEGER UNIQUE NOT NULL
+    index INTEGER NOT NULL
 
 );

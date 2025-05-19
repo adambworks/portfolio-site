@@ -29,6 +29,7 @@ diesel::table! {
         overview -> Nullable<Text>,
         slug -> Text,
         image -> Nullable<Text>,
+        chapter_descriptor -> Nullable<Text>,
     }
 }
 

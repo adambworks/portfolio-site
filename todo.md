@@ -7,3 +7,5 @@
  - [x] need to added slugifyed name to DB
  - [ ] forward and back page on a chapter page
  - [ ] landing page
+ - [x] ability to set what to call chapter field in Projec
+ - [ ] Project bar across top of pages

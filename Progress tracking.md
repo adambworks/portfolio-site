@@ -24,3 +24,7 @@
 - 5/18/25
 	- Project page now shows chapters, 
 	- chapter can be clicked on to bring up the chapter page which shows its entries
+- 5/19/25
+	- added configurable chapter descriptor as field for project
+	- index for chapter and entries are no longer unique 
+	- field is displayed in website field can be null

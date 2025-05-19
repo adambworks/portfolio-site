@@ -13,6 +13,7 @@ pub struct Project {
     pub overview: Option<String>,
     pub slug: String,
     pub image: Option<String>,
+    pub chapter_descriptor: Option<String>
 }
 
 #[derive(Queryable, Selectable, Serialize, Associations,Identifiable)]
@@ -48,7 +49,9 @@ pub struct NewProject<'a>{
     pub date_started: &'a NaiveDate,
     pub overview: Option<&'a str>,
     pub slug: &'a str,
-    pub image: Option<&'a str>
+    pub image: Option<&'a str>,
+    pub chapter_descriptor: Option<&'a str>
+
 }
 
 #[derive(Insertable)]
