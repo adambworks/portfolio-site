@@ -33,9 +33,9 @@ WORKDIR /app
 # Install needed runtime libs
 RUN apt-get update && apt-get install -y libssl1.1 ca-certificates && rm -rf /var/lib/apt/lists/*
 
-COPY --from=backend-build /app/target/release/portfolio_back ./server
+COPY --from=backend-build /app/target/release/ ./server
 COPY --from=backend-build /app/static ./static
 
 EXPOSE 8080
 
-CMD ["./server"]
+CMD ["./server/portfolio_back.exe"]
