@@ -3,10 +3,10 @@ FROM node:18 AS frontend-build
 
 WORKDIR /app/frontend
 
-COPY portfolio_frontend/package.json portfolio_frontend/package-lock.json ./
+COPY portfolio_front/package.json portfolio_front/package-lock.json ./
 RUN npm install
 
-COPY portfolio_frontend/ ./
+COPY portfolio_front/ ./
 RUN npm run build
 
 
@@ -18,7 +18,7 @@ WORKDIR /app
 # Install build tools
 RUN apt-get update && apt-get install -y pkg-config libssl-dev
 
-COPY portfolio_backend/ ./
+COPY portfolio_back/ ./
 # Copy built frontend to backend's static folder
 COPY --from=frontend-build /app/frontend/dist ./static  
 
