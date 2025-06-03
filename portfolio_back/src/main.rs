@@ -13,6 +13,16 @@ use actix_cors::Cors;
 use actix_web::{http::header, web, App, HttpServer};
 use actix_files::Files;
 
+
+
+
+
+async fn spa_fallback() -> impl Responder {
+    actix_files::NamedFile::open("./static/index.html")
+        .unwrap()
+        .use_last_modified(true)
+}
+
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     dotenv().ok();
@@ -36,6 +46,8 @@ async fn main() -> std::io::Result<()> {
                 .service(self::routes::chapters::get_chapters_by_id)
                 .service(self::routes::chapters::get_chapter_by_slug_index)
                 .service(self::routes::entries::get_entries_by_id)
+                .service(Files::new("/", "./static").index_file("index.html"))
+            .default_service(web::route().to(spa_fallback))
             )
     })
     .bind(("127.0.0.1", 8080))?

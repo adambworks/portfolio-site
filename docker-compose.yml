@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: my_postgres
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydatabase
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  web:
+    build:
+      context: https://gitea.bocktank.com/abock/portfolio-site.git
+      dockerfile: Dockerfile
+    container_name: my_app
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://myuser:mypassword@db:5432/mydatabase
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend/static:/app/static
+    restart: on-failure
+
+volumes:
+  pgdata:

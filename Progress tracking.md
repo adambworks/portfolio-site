@@ -28,3 +28,7 @@
 	- added configurable chapter descriptor as field for project
 	- index for chapter and entries are no longer unique 
 	- field is displayed in website field can be null
+- 6/2/25
+	- added back and forth buttons for chapters
+- 6/3/25
+	- 
