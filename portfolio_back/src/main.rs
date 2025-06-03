@@ -10,7 +10,7 @@ use std::env;
 
 //actix imports
 use actix_cors::Cors;
-use actix_web::{http::header, web, App, HttpServer};
+use actix_web::{http::header, web, App, HttpServer,Responder};
 use actix_files::Files;
 
 

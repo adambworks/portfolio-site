@@ -1,0 +1,8 @@
+portfolio_front/node_modules
+portfolio_front/dist
+.git
+.vscode
+.DS_Store
+*.log
+**/*.gitignore
+**/*README.md
