@@ -31,4 +31,8 @@
 - 6/2/25
 	- added back and forth buttons for chapters
 - 6/3/25
-	- 
+	- working on dockerfile and docker compose to build app
+	- installed docker on dev computer
+	- configured rust actix to server frontend 
+- 6/4/25
+	- finally got docker working can see website now
