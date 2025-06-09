@@ -51,14 +51,15 @@ async fn main() -> std::io::Result<()> {
     print_static_files();
     HttpServer::new(move || {
         let cors = Cors::default()
-            .allowed_origin("*")
+            .allowed_origin("https://adam.bocktank.com")
             .allowed_methods(vec!["GET", "POST", "PUT", "DELETE"])
             .allowed_headers(vec![header::AUTHORIZATION, header::CONTENT_TYPE])
             .supports_credentials();
         App::new()
-           // .wrap(cors)
+           
             .app_data(web::Data::new(pool.clone()))
             .service(web::scope("api")
+                .wrap(cors)
                 .service(self::routes::projects::list_projects)
                 .service(self::routes::projects::get_project_by_slug)
                 .service(Files::new("/images","./static/images").show_files_listing())
