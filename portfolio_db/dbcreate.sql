@@ -1,5 +1,5 @@
 -- Projects table
-CREATE TABLE projects (
+CREATE TABLE IF NOT EXISTS projects (
     id SERIAL PRIMARY KEY,
     name TEXT UNIQUE NOT NULL,
     date_started DATE NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE projects (
 );
 
 -- Chapters table
-CREATE TABLE chapters (
+CREATE TABLE IF NOT EXISTS chapters (
     id SERIAL PRIMARY KEY,
     project_id INTEGER NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
     name TEXT NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE chapters (
 );
 
 -- Entries table
-CREATE TABLE entries (
+CREATE TABLE IF NOT EXISTS entries (
     id SERIAL PRIMARY KEY,
     chapter_id INTEGER NOT NULL REFERENCES chapters(id) ON DELETE CASCADE,
     text TEXT,

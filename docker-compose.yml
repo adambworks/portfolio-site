@@ -2,7 +2,10 @@ version: "3.9"
 
 services:
   db:
-    image: postgres:15
+    #image: postgres:15
+    build: 
+      context: ./portfolio_db
+      dockerfile: dockerfile
     container_name: my_postgres
     environment:
       POSTGRES_USER: postgres
