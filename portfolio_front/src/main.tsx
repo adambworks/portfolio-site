@@ -7,14 +7,17 @@ import ChapterPage from "./pages/ChapterPage.tsx";
 import HomePage from "./pages/HomePage.tsx";
 
 createRoot(document.getElementById("root")!).render(
-  <div className="max-w-screen-lg mx-auto px-4 text-center">
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/projects" element={<ProjectsPage />} />
-      <Route path="/projects/:slug" element={<ProjectDetailPage />} />
-      <Route path="/projects/:slug/chapter/:chapterIndex" element={<ChapterPage />}/>
-    </Routes>
-  </BrowserRouter>
-  </div>
+	<div className="mx-auto max-w-screen-lg px-4 text-center">
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element={<HomePage />} />
+				<Route path="/projects" element={<ProjectsPage />} />
+				<Route path="/projects/:slug" element={<ProjectDetailPage />} />
+				<Route
+					path="/projects/:slug/chapter/:chapterIndex"
+					element={<ChapterPage />}
+				/>
+			</Routes>
+		</BrowserRouter>
+	</div>,
 );

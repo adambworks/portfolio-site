@@ -5,7 +5,11 @@
  - [x] create routs in actix
  - [x] learn how to access actix routs in react
  - [x] need to added slugifyed name to DB
- - [ ] forward and back page on a chapter page
- - [ ] landing page
+ - [x] forward and back page on a chapter page
+ - [x] landing page
  - [x] ability to set what to call chapter field in Projec
  - [ ] Project bar across top of pages
+ - [x] dockerize
+ - [x] deploy to server and access from anywhere
+ - [ ] need to seprate static file location for images and webage
+	 - [ ] add docker volume for images so it persist
