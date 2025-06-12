@@ -36,3 +36,7 @@
 	- configured rust actix to server frontend 
 - 6/4/25
 	- finally got docker working can see website now
+- 6/11/25
+	- finally got docker deployed to my server
+- 6/12/25
+	- added framework for a landing page

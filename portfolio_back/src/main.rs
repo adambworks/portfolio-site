@@ -10,7 +10,7 @@ use std::env;
 
 //actix imports
 use actix_cors::Cors;
-use actix_web::{http::header, web, App, HttpServer,Responder};
+use actix_web::{http::header, middleware::Logger, web, App, HttpServer, Responder};
 use actix_files::Files;
 
 
@@ -42,24 +42,24 @@ async fn spa_fallback() -> impl Responder {
 async fn main() -> std::io::Result<()> {
     dotenv().ok();
     let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
-    println!("Current working directory: {:?}", std::env::current_dir()?);
-
-    println!("database_url is: {}", database_url);
-    println!("Current working directory: {:?}", std::env::current_dir()?);
+ 
     let pool = init_pool(&database_url);
     println!("🚀 Server is starting...");
-    print_static_files();
+    let database_allowed_origin =  env::var("DATABASE_ALLOWED_ORGIN").expect("DATABASE_ALLOWED_ORGIN must be set");
+    let bind_ip = env::var("BIND_IP").expect("BIND_IP must be set");
+   // print_static_files();
     HttpServer::new(move || {
         let cors = Cors::default()
-            .allowed_origin("https://adam.bocktank.com")
+            .allowed_origin(&database_allowed_origin)
             .allowed_methods(vec!["GET", "POST", "PUT", "DELETE"])
             .allowed_headers(vec![header::AUTHORIZATION, header::CONTENT_TYPE])
             .supports_credentials();
         App::new()
-           
+            .wrap(Logger::default())
             .app_data(web::Data::new(pool.clone()))
-            .service(web::scope("api")
-                .wrap(cors)
+            
+            .service(web::scope("/api")
+            .wrap(cors)
                 .service(self::routes::projects::list_projects)
                 .service(self::routes::projects::get_project_by_slug)
                 .service(Files::new("/images","./static/images").show_files_listing())
@@ -69,8 +69,9 @@ async fn main() -> std::io::Result<()> {
             )
             .service(Files::new("/", "./static").index_file("index.html"))
             .default_service(web::route().to(spa_fallback))
+            
     })
-    .bind(("0.0.0.0", 8080))?
+    .bind((bind_ip,8080))?
     .run()
     .await
 }
