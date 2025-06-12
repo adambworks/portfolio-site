@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 
 export default function HomePage() {
   return (
-    <div className="max-w-3xl mx-auto p-6 text-white">
+    <div className="max-w-fit mx-auto p-24 text-white">
       <h1 className="text-4xl font-bold mb-4">Welcome to My Portfolio</h1>
 
       <section className="mb-8">
@@ -10,14 +10,17 @@ export default function HomePage() {
         <p>
           This is a full-stack portfolio site built using Rust (Actix Web) for the backend and React (Vite) for the frontend.
           It showcases a collection of projects, each with detailed chapters and entries that walk through the development process.
+          
+          This site is both a technical showcase and a place where I document my work and ideas.
         </p>
       </section>
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-2">About Me</h2>
         <p>
-          I'm a developer who enjoys building projects from the ground up. I work with a mix of technologies, including Rust, TypeScript, Docker, and more.
-          This site is both a technical showcase and a place where I document my work and ideas.
+          I'm a computer scinces graduate from RIT who enjoys learning new things.
+
+          
         </p>
       </section>
 
@@ -30,10 +33,10 @@ export default function HomePage() {
         </Link>
       </section>
 
-      <section className="mb-8">
+      <section className="mb-1">
         <h2 className="text-2xl font-semibold mb-2">Connect</h2>
         <a
-          href="https://www.linkedin.com/in/your-linkedin-profile"
+          href="https://www.linkedin.com/in/adamhbock"
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-600 hover:underline"
@@ -45,14 +48,16 @@ export default function HomePage() {
       <section>
         <h2 className="text-2xl font-semibold mb-2">Contact</h2>
         <p>
-          You can reach me at:{' '}
+          email me at:{' '}
           <a
-            href="mailto:your.email@example.com"
+            href="mailto:adam.bock@gmail.com"
             className="text-blue-600 hover:underline"
           >
-            your.email@example.com
+            adam.bock@gmail.com
           </a>
         </p>
+        text or call at:{' '}
+        <a className='text-blue-600'>201-580-0667</a>
       </section>
     </div>
   );
