@@ -1,6 +1,7 @@
 portfolio_front/node_modules
 portfolio_front/dist
 portfolio_front/.env
+portfolio_back/.env
 .git
 .vscode
 .DS_Store

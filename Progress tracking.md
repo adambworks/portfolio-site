@@ -40,3 +40,4 @@
 	- finally got docker deployed to my server
 - 6/12/25
 	- added framework for a landing page
+	- made it so dev can be done with out disrupting docker 
