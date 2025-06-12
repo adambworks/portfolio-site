@@ -184,6 +184,8 @@
   },
   "active": "4b5534ca96fbcae2",
   "lastOpenFiles": [
+    "update.sh",
+    "update.bash",
     "portfolio_back/target/debug/deps/portfolio_back.pdb",
     "portfolio_back/target/debug/deps/portfolio_back.exe",
     "portfolio_back/target/debug/incremental/portfolio_back-27sq8i2j1z3hc/s-h88krgh5ia-10rguzc-4n7ogrhaglu3xrjbib497ebv1/work-products.bin",
@@ -193,8 +195,6 @@
     "portfolio_back/target/debug/incremental/portfolio_back-27sq8i2j1z3hc/s-h88krgh5ia-10rguzc-4n7ogrhaglu3xrjbib497ebv1/euhdujjukz8lp4hg69b3rq4d5.o",
     "portfolio_back/target/debug/incremental/portfolio_back-27sq8i2j1z3hc/s-h88krgh5ia-10rguzc-4n7ogrhaglu3xrjbib497ebv1/ezeetoe2clivpf2bfkdw4lvwq.o",
     "portfolio_back/target/debug/incremental/portfolio_back-27sq8i2j1z3hc/s-h88krgh5ia-10rguzc-4n7ogrhaglu3xrjbib497ebv1/ex9l00nfkjra3twvnv1cigttu.o",
-    "portfolio_back/target/debug/incremental/portfolio_back-27sq8i2j1z3hc/s-h88krgh5ia-10rguzc-4n7ogrhaglu3xrjbib497ebv1/eq5vkbvpcx5pssld0d1j7vzqw.o",
-    "portfolio_back/target/debug/incremental/portfolio_back-27sq8i2j1z3hc/s-h88krgh5ia-10rguzc-4n7ogrhaglu3xrjbib497ebv1/ep7a0errqxndsuq2qk7hiclyq.o",
     "portfolio_front/dist/assets/react-CHdo91hT.svg",
     "portfolio_front/dist/vite.svg",
     "todo.md",
