@@ -19,7 +19,7 @@ export default function ProjectsPage() {
 					<Link
 						key={project.slug}
 						to={`/projects/${project.slug}`}
-						className="block rounded-lg border border-gray-200 bg-white p-4 shadow transition hover:shadow-md"
+						className="block rounded-lg border-b-8 border-t-8 bg-colorc p-4 shadow transition hover:shadow-md"
 					>
 						{project.image !== null && project.image != "" && (
 							<img

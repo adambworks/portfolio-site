@@ -7,7 +7,7 @@ import ChapterPage from "./pages/ChapterPage.tsx";
 import HomePage from "./pages/HomePage.tsx";
 
 createRoot(document.getElementById("root")!).render(
-	<div className="mx-auto max-w-screen-lg px-4 text-center">
+	<div className="text-colorb bg-colora mx-auto max-w-screen-lg px-4 text-center">
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<HomePage />} />

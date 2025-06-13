@@ -184,6 +184,8 @@
   },
   "active": "4b5534ca96fbcae2",
   "lastOpenFiles": [
+    "portfolio_back/target/debug/build/zstd-sys-e31fee6507741e49/build-script-build.exe",
+    "portfolio_back/target/debug/build/mime_guess-ee8bdbfbb70c8552/build-script-build.exe",
     "portfolio_front/node_modules/@esbuild/linux-arm64",
     "portfolio_front/node_modules/@esbuild/linux-arm",
     "portfolio_front/node_modules/@esbuild/freebsd-x64",
@@ -197,8 +199,6 @@
     "README.md",
     "todo.md",
     "Progress tracking.md",
-    "update.sh",
-    "update.bash",
     "portfolio_front/dist/assets/react-CHdo91hT.svg",
     "portfolio_front/dist/vite.svg",
     "portfolio_front/node_modules/prettier-plugin-tailwindcss/dist/licenses/@shopify/prettier-plugin-liquid/README.md",

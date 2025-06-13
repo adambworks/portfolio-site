@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 export default function HomePage() {
 	return (
-		<div className="mx-auto max-w-fit p-24 text-white">
+		<div className="mx-auto max-w-fit p-24 ">
 			<h1 className="mb-4 text-4xl font-bold">Welcome to My Portfolio</h1>
 
 			<section className="mb-8">
@@ -32,6 +32,18 @@ export default function HomePage() {
 					View Projects
 				</Link>
 			</section>
+
+      <section>
+      <h2 className="mb-2 text-2xl font-semibold">My Domain</h2>
+      my domain, bocktank.com, was orginally chosen for
+      use with my storage server, bock being my last name and tank as a stroage tank
+
+
+      </section>
+
+
+
+
 
 			<section className="mb-1">
 				<h2 className="mb-2 text-2xl font-semibold">Connect</h2>

@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+
+@theme {
+  --color-colora: oklch(0.3118 0.0529 129.56);
+  --color-colorb:  oklch(0.6094 0.1302 57.35);
+  --color-colorc: oklch(0.9814 0.0342 99.83)
+
+}
+
 :root {
 
 
@@ -8,8 +16,8 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /*color: oklch(100% 0.00011 271.152 / 0.87);
+  /*background-color: #242424;*/
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
