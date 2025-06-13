@@ -68,7 +68,7 @@ export default function HomePage() {
 						adam.bock@gmail.com
 					</a>
 				</p>
-				text or call at: <a className="text-blue-600">201-580-0667</a>
+				text or call at: <a className="text-blue-600" href="tel:2015800667">201-580-0667</a>
 			</section>
 		</div>
 	);
