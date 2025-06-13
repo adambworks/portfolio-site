@@ -41,4 +41,4 @@
 - 6/12/25
 	- added framework for a landing page basic landing page that has an about and 
 	- made it so dev work can be done with out disrupting docker by adding more env valves
-	- modifying css
+	- modifying css and starting to stylize the page
