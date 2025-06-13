@@ -7,7 +7,8 @@ import ChapterPage from "./pages/ChapterPage.tsx";
 import HomePage from "./pages/HomePage.tsx";
 
 createRoot(document.getElementById("root")!).render(
-	<div className="text-colorb bg-colora mx-auto max-w-screen-lg px-4 text-center">
+  <div className="bg-colora min-h-screen">
+	<div className="text-colorb mx-auto max-w-screen-lg px-4 text-center">
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<HomePage />} />
@@ -19,5 +20,7 @@ createRoot(document.getElementById("root")!).render(
 				/>
 			</Routes>
 		</BrowserRouter>
-	</div>,
+	</div>
+  </div>
+  ,
 );
