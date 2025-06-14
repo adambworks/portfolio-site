@@ -15,22 +15,6 @@ use actix_files::Files;
 
 
 
-fn print_static_files() {
-    match std::fs::read_dir("./static") {
-        Ok(entries) => {
-            println!("Contents of ./static:");
-            for entry in entries {
-                match entry {
-                    Ok(entry) => println!(" - {:?}", entry.path()),
-                    Err(e) => println!(" - Error reading entry: {}", e),
-                }
-            }
-        }
-        Err(e) => {
-            println!("Failed to read ./static: {}", e);
-        }
-    }
-}
 
 async fn spa_fallback() -> impl Responder {
     actix_files::NamedFile::open("./static/index.html")
@@ -47,7 +31,6 @@ async fn main() -> std::io::Result<()> {
     println!("🚀 Server is starting...");
     let database_allowed_origin =  env::var("DATABASE_ALLOWED_ORGIN").expect("DATABASE_ALLOWED_ORGIN must be set");
     let bind_ip = env::var("BIND_IP").expect("BIND_IP must be set");
-   // print_static_files();
     HttpServer::new(move || {
         let cors = Cors::default()
             .allowed_origin(&database_allowed_origin)
@@ -62,7 +45,7 @@ async fn main() -> std::io::Result<()> {
             .wrap(cors)
                 .service(self::routes::projects::list_projects)
                 .service(self::routes::projects::get_project_by_slug)
-                .service(Files::new("/images","./static/images").show_files_listing())
+                .service(Files::new("/images","./assets/images").show_files_listing())
                 .service(self::routes::chapters::get_chapters_by_id)
                 .service(self::routes::chapters::get_chapter_by_slug_index)
                 .service(self::routes::entries::get_entries_by_id)

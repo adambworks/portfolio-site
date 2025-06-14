@@ -8,7 +8,9 @@ The goal is to create a website for viewing all my projects, I want the pages to
 ## Software Stack
 - postgres
 - React
-- vite
+- Vite
 - React Router
 - Rust
-- actix(check spelling)
+- Actix
+- Tailwind
+- Docker

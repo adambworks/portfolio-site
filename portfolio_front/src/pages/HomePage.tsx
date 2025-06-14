@@ -3,6 +3,7 @@ import { Link } from "react-router";
 export default function HomePage() {
 	return (
 		<div className="mx-auto max-w-fit p-24 ">
+			<h1 className="mb-4 text-4xl font-bold">My name is Adam Bock</h1>
 			<h1 className="mb-4 text-4xl font-bold">Welcome to My Portfolio</h1>
 
 			<section className="mb-8">

@@ -4,7 +4,9 @@
 @theme {
   --color-colora: oklch(0.3118 0.0529 129.56);
   --color-colorb:  oklch(0.6094 0.1302 57.35);
-  --color-colorc: oklch(0.9814 0.0342 99.83)
+  --color-colorc: oklch(0.9814 0.0342 99.83);
+  --color-colord: oklch(0.5082 0.0762 119.86);
+  --color-colore: oklch(0.7525 0.1103 67.83);
 
 }
 
@@ -15,9 +17,6 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  /*color: oklch(100% 0.00011 271.152 / 0.87);
-  /*background-color: #242424;*/
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
