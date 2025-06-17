@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Progress tracking.md",
+                "file": "todo.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Progress tracking"
+              "title": "todo"
             }
           },
           {
@@ -184,6 +184,9 @@
   },
   "active": "4b5534ca96fbcae2",
   "lastOpenFiles": [
+    "Progress tracking.md",
+    "portfolio_front/src/modules/global_buttons.tsx",
+    "portfolio_front/src/modules",
     "portfolio_back/target/debug/incremental/portfolio_back-2shm6nxd6w0ex/s-h89yot657a-0ygnrk7-7q6jw63vnyt63xd26itg3j0ch/dep-graph.bin",
     "portfolio_back/target/debug/incremental/portfolio_back-2shm6nxd6w0ex/s-h89yot657a-0ygnrk7-7q6jw63vnyt63xd26itg3j0ch/work-products.bin",
     "portfolio_back/target/debug/incremental/portfolio_back-2shm6nxd6w0ex/s-h89yot657a-0ygnrk7-7q6jw63vnyt63xd26itg3j0ch/query-cache.bin",
@@ -192,12 +195,8 @@
     "portfolio_back/target/debug/incremental/portfolio_back-0yt402dkp5f2v/s-h89yot5u1k-0gjzwko-320rbd48hitvuw7l3h9o84uvi/work-products.bin",
     "portfolio_back/target/debug/incremental/portfolio_back-0yt402dkp5f2v/s-h89yot5u1k-0gjzwko-320rbd48hitvuw7l3h9o84uvi/query-cache.bin",
     "portfolio_back/target/debug/incremental/portfolio_back-0yt402dkp5f2v/s-h89yot5u1k-0gjzwko-320rbd48hitvuw7l3h9o84uvi",
-    "portfolio_back/target/debug/incremental/portfolio_back-2shm6nxd6w0ex/s-h89yot657a-0ygnrk7-working/work-products.bin",
-    "portfolio_back/target/debug/incremental/portfolio_back-2shm6nxd6w0ex/s-h89yot657a-0ygnrk7-working/query-cache.bin",
-    "portfolio_back/target/debug/incremental/portfolio_back-2shm6nxd6w0ex/s-h89yot657a-0ygnrk7-working/dep-graph.bin",
     "portfolio_back/assets/images/test.jpg",
     "Project Overview-Readme(maybe).md",
-    "Progress tracking.md",
     "README.md",
     "todo.md",
     "portfolio_front/dist/assets/react-CHdo91hT.svg",

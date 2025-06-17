@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <div className="bg-colora min-h-screen">
+    
 	<div className="text-colorb mx-auto max-w-screen-lg px-4 text-center">
 		<BrowserRouter>
 			<Routes>

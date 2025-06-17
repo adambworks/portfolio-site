@@ -1,8 +1,20 @@
 import { Link } from "react-router";
+import HamburgerMenu from "../modules/global_buttons";
+import { useEffect, useState } from "react";
+import type { Project } from "../structs/project";
+import { fetchProjects } from "../api/projects";
 
 export default function HomePage() {
+
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    fetchProjects().then(setProjects).catch(console.error);
+  }, []);
+
 	return (
 		<div className="mx-auto max-w-fit p-24 ">
+      {HamburgerMenu(projects)}
 			<h1 className="mb-4 text-4xl font-bold">My name is Adam Bock</h1>
 			<h1 className="mb-4 text-4xl font-bold">Welcome to My Portfolio</h1>
 

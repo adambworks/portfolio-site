@@ -1,9 +1,10 @@
 import { Link, useParams } from "react-router";
 import { useEffect, useState } from "react";
-import { fetchProjectBySlug } from "../api/projects";
+import { fetchProjectBySlug, fetchProjects } from "../api/projects";
 import type { Project } from "../structs/project";
 import type { Chapter } from "../structs/chapter";
 import { fetchChapters } from "../api/chapters";
+import HamburgerMenu from "../modules/global_buttons";
 
 function chapter_descriptor(project: Project, chapter_index: number) {
 	if (project.chapter_descriptor != null) {
@@ -21,7 +22,11 @@ export default function ProjectDetailPage() {
 	const { slug } = useParams<{ slug: string }>();
 	const [project, setProject] = useState<Project | null>(null);
 	const [chapters, setChapters] = useState<Chapter[]>([]);
+  const [projects, setProjects] = useState<Project[]>([]);
 
+  useEffect(() => {
+    fetchProjects().then(setProjects).catch(console.error);
+  }, []);
 	useEffect(() => {
 		if (slug) {
 			fetchProjectBySlug(slug).then(setProject).catch(console.error);
@@ -33,7 +38,7 @@ export default function ProjectDetailPage() {
 		fetchChapters(project.id).then(setChapters).catch(console.error);
 	}, [project]);
 
-	if (!project) return <div className="p-4"> Invalid project</div>;
+	if (!project) return <div className="p-4">{HamburgerMenu(projects)} Invalid project</div>;
 
 	const chapterList =
 		chapters.length > 0 ? (
@@ -41,7 +46,7 @@ export default function ProjectDetailPage() {
 				<Link
 					key={chapter.index}
 					to={`/projects/${project.slug}/chapter/${chapter.index}`}
-					className="block rounded-lg border border-gray-200 bg-white p-2 shadow transition hover:shadow-md"
+					className="block rounded-lg border-b-8 border-t-8 bg-white p-2 shadow transition hover:shadow-md"
 				>
 					{chapter_descriptor(project, chapter.index)}
 					<h2 className="mb-1 text-lg font-semibold">{chapter.name}</h2>
@@ -52,8 +57,10 @@ export default function ProjectDetailPage() {
 		);
 
 	return (
+    
 		<div className="p-4">
-			debug project id: {project.id}
+                  {HamburgerMenu(projects)}
+      
 			{project.image !== null && project.image != "" && (
 				<img
 					src={`http://localhost:8080/api/images/${project.image}`}

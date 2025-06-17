@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchProjects } from "../api/projects";
 import type { Project } from "../structs/project";
 import { Link } from "react-router";
+import HamburgerMenu from "../modules/global_buttons";
 
 export default function ProjectsPage() {
 	const [projects, setProjects] = useState<Project[]>([]);
@@ -12,6 +13,7 @@ export default function ProjectsPage() {
 
 	return (
 		<div className="mx-auto max-w-6xl p-4">
+      {HamburgerMenu(projects)}
 			<h1 className="mb-6 text-2xl font-bold">Projects</h1>
 
 			<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">

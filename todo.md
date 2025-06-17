@@ -8,7 +8,7 @@
  - [x] forward and back page on a chapter page
  - [x] landing page
  - [x] ability to set what to call chapter field in Projec
- - [ ] Project bar across top of pages
+ - [x] Hambeurger menue
  - [x] dockerize
  - [x] deploy to server and access from anywhere
  - [ ] need to seprate static file location for images and webage
