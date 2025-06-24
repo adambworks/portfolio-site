@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from "react";
 import type { Project } from "../structs/project";
-import type { Chapter } from "../structs/chapter";
 import { Link } from "react-router";
 
 export default function HamburgerMenu(projects: Project[]) {
