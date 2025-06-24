@@ -13,7 +13,7 @@ function chapter_buttons(chapter: Chapter, slug: string, chapters: Chapter[]) {
 
 		<div className="grid grid-cols-2 space-x-20">
 			<div
-				className={`rounded border border-gray-900 bg-white p-4 shadow-sm ${
+				className={`rounded  bg-colorb px-4 py-2 text-colorc transition hover:bg-colorb/70 shadow-sm ${
 					chapter.index <= 1 ||
 					!chapters.some((c) => c.index === chapter.index - 1)
 						? "invisible"
@@ -29,7 +29,7 @@ function chapter_buttons(chapter: Chapter, slug: string, chapters: Chapter[]) {
 			</div>
 
 			<div
-				className={`rounded border border-gray-900 bg-white p-4 shadow-sm ${
+				className={`rounded  bg-colorb px-4 py-2 text-colorc transition hover:bg-colorb/70 shadow-sm ${
 					!chapters.some((c) => c.index === chapter.index + 1)
 						? "invisible"
 						: ""
@@ -97,15 +97,15 @@ export default function ChapterPage() {
 						No entries available for this chapter.
 					</p>
 				) : (
-					<div className="grid grid-cols-1 gap-0">
+					<div className="grid grid-cols-1 gap-4">
 						{entries.map((entry) => (
 							<div
 								key={entry.id}
-								className=" border-l-4 border-r-4 bg-white p-4 shadow-sm"
+								className=" border-8 rounded-lg bg-colorc p-4"
 							>
-								<p className="text-gray-700">{entry.text}</p>
+								<p className="">{entry.text}</p>
 								{entry.date != null && entry.date != "" && (
-									<p className="text-gray-700">Date: {entry.date}</p>
+									<p className="text-colora">Date: {entry.date}</p>
 								)}
 								{entry.image && (
 									<img

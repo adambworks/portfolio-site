@@ -20,7 +20,7 @@ export default function HomePage() {
 
 			<section className="mb-8">
 				<h2 className="mb-2 text-2xl font-semibold">About This Site</h2>
-				<p>
+				<p className="text-colore">
 					This is a full-stack portfolio site built using Rust (Actix Web) for
 					the backend and React (Vite) for the frontend. It showcases a
 					collection of projects, each with detailed chapters and entries that
@@ -31,7 +31,7 @@ export default function HomePage() {
 
 			<section className="mb-8">
 				<h2 className="mb-2 text-2xl font-semibold">About Me</h2>
-				<p>
+				<p className="text-colore">
 					I'm a computer scinces graduate from RIT who enjoys learning new
 					things.
 				</p>
@@ -40,17 +40,18 @@ export default function HomePage() {
 			<section className="mb-8">
 				<Link
 					to="/projects"
-					className="inline-block rounded bg-blue-600 px-4 py-2 text-white transition hover:bg-blue-700"
+					className="inline-block rounded bg-colorb px-4 py-2 text-colorc transition hover:bg-colorb/70"
 				>
 					View Projects
 				</Link>
 			</section>
 
       <section>
-      <h2 className="mb-2 text-2xl font-semibold">My Domain</h2>
+      <h2 className="mb-2 text-2xl font-semibold ">My Domain</h2>
+      <p className="text-colore">
       my domain, bocktank.com, was orginally chosen for
       use with my storage server, bock being my last name and tank as a stroage tank
-
+    </p>
 
       </section>
 
@@ -64,7 +65,7 @@ export default function HomePage() {
 					href="https://www.linkedin.com/in/adamhbock"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="text-blue-600 hover:underline"
+					className="text-colore hover:underline"
 				>
 					LinkedIn Profile
 				</a>
@@ -76,12 +77,12 @@ export default function HomePage() {
 					email me at:{" "}
 					<a
 						href="mailto:adam.bock@gmail.com"
-						className="text-blue-600 hover:underline"
+						className="text-colore hover:underline"
 					>
 						adam.bock@gmail.com
 					</a>
 				</p>
-				text or call at: <a className="text-blue-600" href="tel:2015800667">201-580-0667</a>
+				text or call at: <a className="text-colore" href="tel:2015800667">201-580-0667</a>
 			</section>
 		</div>
 	);

@@ -184,6 +184,14 @@
   },
   "active": "4b5534ca96fbcae2",
   "lastOpenFiles": [
+    "images/tailwindcss-logotype.svg",
+    "images/vite_logo.svg",
+    "images/logo.svg",
+    "images/rust-logo-blk.svg",
+    "images/rr_lockup_light.svg",
+    "images/react-logo.svg",
+    "images/usage.md",
+    "images",
     "Progress tracking.md",
     "portfolio_front/src/modules/global_buttons.tsx",
     "portfolio_front/src/modules",
@@ -194,7 +202,6 @@
     "portfolio_back/target/debug/incremental/portfolio_back-0yt402dkp5f2v/s-h89yot5u1k-0gjzwko-320rbd48hitvuw7l3h9o84uvi/dep-graph.bin",
     "portfolio_back/target/debug/incremental/portfolio_back-0yt402dkp5f2v/s-h89yot5u1k-0gjzwko-320rbd48hitvuw7l3h9o84uvi/work-products.bin",
     "portfolio_back/target/debug/incremental/portfolio_back-0yt402dkp5f2v/s-h89yot5u1k-0gjzwko-320rbd48hitvuw7l3h9o84uvi/query-cache.bin",
-    "portfolio_back/target/debug/incremental/portfolio_back-0yt402dkp5f2v/s-h89yot5u1k-0gjzwko-320rbd48hitvuw7l3h9o84uvi",
     "portfolio_back/assets/images/test.jpg",
     "Project Overview-Readme(maybe).md",
     "README.md",
@@ -223,11 +230,6 @@
     "portfolio_front/src/assets/react.svg",
     "portfolio_front/node_modules/react-router/README.md",
     "portfolio_front/node_modules/react-router/LICENSE.md",
-    "portfolio_front/node_modules/react-router/CHANGELOG.md",
-    "portfolio_front/public/vite.svg",
-    "portfolio_front/node_modules/retry/equation.gif",
-    "portfolio_front/app/welcome/logo-light.svg",
-    "portfolio_front/app/welcome/logo-dark.svg",
     "Untitled.canvas"
   ]
 }

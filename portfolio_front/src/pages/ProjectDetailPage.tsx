@@ -46,7 +46,7 @@ export default function ProjectDetailPage() {
 				<Link
 					key={chapter.index}
 					to={`/projects/${project.slug}/chapter/${chapter.index}`}
-					className="block rounded-lg border-b-8 border-t-8 bg-white p-2 shadow transition hover:shadow-md"
+					className="block rounded-lg border-8 bg-colorc p-2"
 				>
 					{chapter_descriptor(project, chapter.index)}
 					<h2 className="mb-1 text-lg font-semibold">{chapter.name}</h2>
@@ -69,8 +69,10 @@ export default function ProjectDetailPage() {
 				/>
 			)}
 			<h1 className="mb-2 text-2xl font-bold">{project.name}</h1>
-			<p className="mb-4 text-gray-500">{project.date_started}</p>
-			<p>overview: {project.overview}</p>
+			<p className="mb-4 text-colore">{project.date_started}</p>
+
+      <h2 className="text-xl">Overview:</h2>
+			<p className="text-colore">{project.overview}</p>
 			<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
 				{chapterList}
 			</div>

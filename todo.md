@@ -11,5 +11,5 @@
  - [x] Hambeurger menue
  - [x] dockerize
  - [x] deploy to server and access from anywhere
- - [ ] need to seprate static file location for images and webage
-	 - [ ] add docker volume for images so it persist
+ - [x] need to seprate static file location for images and webage
+	 - [x] add docker volume for images so it persist
