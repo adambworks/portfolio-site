@@ -111,7 +111,7 @@ export default function ChapterPage() {
 									<img
                     src={`${API_URL}/images/${entry.image}`}
 										alt=""
-										className="mb-2 h-60 w-full rounded object-cover"
+										className="mb-2 h-60 w-60 rounded object-cover"
 									/>
 								)}
 							</div>
