@@ -10,7 +10,6 @@ import { fetchProjects } from "../api/projects";
 
 function chapter_buttons(chapter: Chapter, slug: string, chapters: Chapter[]) {
 	return (
-
 		<div className="grid grid-cols-2 space-x-20">
 			<div
 				className={`rounded  bg-colorb px-4 py-2 text-colorc transition hover:bg-colorb/70 shadow-sm ${
@@ -52,6 +51,7 @@ export default function ChapterPage() {
 	const [loading, setLoading] = useState(true);
 	const [chapters, setChapters] = useState<Chapter[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     fetchProjects().then(setProjects).catch(console.error);
@@ -109,7 +109,7 @@ export default function ChapterPage() {
 								)}
 								{entry.image && (
 									<img
-										src={`http://localhost:8080/api/images/${entry.image}`}
+                    src={`${API_URL}/images/${entry.image}`}
 										alt=""
 										className="mb-2 h-60 w-full rounded object-cover"
 									/>

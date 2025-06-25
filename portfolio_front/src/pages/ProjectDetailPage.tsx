@@ -23,6 +23,7 @@ export default function ProjectDetailPage() {
 	const [project, setProject] = useState<Project | null>(null);
 	const [chapters, setChapters] = useState<Chapter[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     fetchProjects().then(setProjects).catch(console.error);
@@ -63,7 +64,7 @@ export default function ProjectDetailPage() {
       
 			{project.image !== null && project.image != "" && (
 				<img
-					src={`http://localhost:8080/api/images/${project.image}`}
+					src={`${API_URL}/images/${project.image}`}
 					alt=""
 					className="mb-2 h-40 w-full rounded object-cover"
 				/>
