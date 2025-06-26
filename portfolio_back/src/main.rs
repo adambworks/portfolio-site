@@ -10,7 +10,7 @@ use std::env;
 
 //actix imports
 use actix_cors::Cors;
-use actix_web::{http::header, middleware::Logger, web, App, HttpServer, Responder};
+use actix_web::{middleware::Logger, web, App, HttpResponse, HttpServer, Responder};
 use actix_files::Files;
 
 
@@ -32,11 +32,12 @@ async fn main() -> std::io::Result<()> {
     let database_allowed_origin =  env::var("DATABASE_ALLOWED_ORGIN").expect("DATABASE_ALLOWED_ORGIN must be set");
     let bind_ip = env::var("BIND_IP").expect("BIND_IP must be set");
     HttpServer::new(move || {
-        let cors = Cors::default()
-            .allowed_origin(&database_allowed_origin)
-            .allowed_methods(vec!["GET", "POST", "PUT", "DELETE"])
-            .allowed_headers(vec![header::AUTHORIZATION, header::CONTENT_TYPE])
-            .supports_credentials();
+       // let cors = Cors::default()
+         //   .allowed_origin(&database_allowed_origin)
+           // .allowed_methods(vec!["GET", "POST", "PUT", "DELETE"])
+           // .allowed_headers(vec![header::AUTHORIZATION, header::CONTENT_TYPE])
+           // .supports_credentials();
+          let cors = Cors::permissive();
         App::new()
             .wrap(Logger::default())
             .app_data(web::Data::new(pool.clone()))
@@ -49,9 +50,12 @@ async fn main() -> std::io::Result<()> {
                 .service(self::routes::chapters::get_chapters_by_id)
                 .service(self::routes::chapters::get_chapter_by_slug_index)
                 .service(self::routes::entries::get_entries_by_id)
+                .default_service(web::to(|| async {
+                    HttpResponse::NotFound().body("API route not found")
+                }))
             )
             .service(Files::new("/", "./static").index_file("index.html"))
-            .default_service(web::route().to(spa_fallback))
+          //  .default_service(web::route().to(spa_fallback))
             
     })
     .bind((bind_ip,8080))?
