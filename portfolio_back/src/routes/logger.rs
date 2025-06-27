@@ -1,3 +1,5 @@
+use uuid::Uuid;
+
 pub fn log_api(trace_id: &Uuid, label: &str) {
-    info!("[{}] 📥 {}", trace_id, label);
+    log::info!("[{}] 📥 {}", trace_id, label);
 }
