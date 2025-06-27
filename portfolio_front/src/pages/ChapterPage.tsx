@@ -111,7 +111,7 @@ export default function ChapterPage() {
 									<img
                     src={`${API_URL}/images/${entry.image}`}
 										alt=""
-										className="mb-2 place-self-center max-w-[400px] max-h-[300px] min-w-2xs min-h-2xs w-auto h-auto"
+										className="mb-2 place-self-center w-full h-auto max-w-[400px] max-h-[300px] object-contain"
 									/>
 								)}
 							</div>
