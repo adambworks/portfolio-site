@@ -13,3 +13,6 @@
  - [x] deploy to server and access from anywhere
  - [x] need to seprate static file location for images and webage
 	 - [x] add docker volume for images so it persist
+- [ ] update logging 
+	- [x] figure out how i want to do logging
+	- [ ] add logging to all parts of site

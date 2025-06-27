@@ -1,11 +1,20 @@
-use crate::models::{Project,NewProject};
+use crate::{
+    db::loggger::log_db,
+    models::{NewProject, Project},
+};
 use chrono::NaiveDate;
 use diesel::prelude::*;
+use uuid::Uuid;
 
-
-fn create_project(conn: &mut PgConnection, name: &str, date_started: &NaiveDate, overview: Option<&str>,
-     slug: &str,image: Option<&str>, chapter_descriptor: Option<&str>
-    ) {
+fn create_project(
+    conn: &mut PgConnection,
+    name: &str,
+    date_started: &NaiveDate,
+    overview: Option<&str>,
+    slug: &str,
+    image: Option<&str>,
+    chapter_descriptor: Option<&str>,
+) {
     use crate::schema::projects;
 
     let new_project = NewProject {
@@ -24,11 +33,12 @@ fn create_project(conn: &mut PgConnection, name: &str, date_started: &NaiveDate,
         .expect("Error saving new post");
 }
 
-pub(crate) fn select_project_by_slug(conn: &mut PgConnection, project_slug: &str) -> Result<Project, diesel::result::Error> {
-    use crate::schema::projects::dsl::{slug, projects};
-    let result = projects
-        .filter(slug.eq(project_slug))
-        .first(conn);
+pub(crate) fn select_project_by_slug(
+    conn: &mut PgConnection,
+    project_slug: &str,
+) -> Result<Project, diesel::result::Error> {
+    use crate::schema::projects::dsl::{projects, slug};
+    let result = projects.filter(slug.eq(project_slug)).first(conn);
     return result;
 }
 
@@ -43,17 +53,14 @@ fn edit_project_overview(conn: &mut PgConnection, project_id: i32, new_overview:
     println!("update project overview {}", project.name);
 }
 
-pub(crate) fn select_all_projects(conn: &mut PgConnection) -> Result<Vec<Project>, diesel::result::Error> {
-    //projects.load::<Project>(conn);
-    //atertivative one line way
-
+pub(crate) fn select_all_projects(
+    conn: &mut PgConnection,
+    trace_id: &Uuid,
+) -> Result<Vec<Project>, diesel::result::Error> {
     use crate::schema::projects::dsl::projects;
-    let results = projects
-        //  .filter(published.eq(true))
-        .select(Project::as_select())
-        .load(conn);
-    //.expect("Error loading projects");//todo should not use expect
-    return results;
+
+    let result = log_db(trace_id, "select_all_projects", || {
+        projects.select(Project::as_select()).load(conn)
+    });
+    return result;
 }
-
-
