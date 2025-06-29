@@ -90,7 +90,7 @@ export default function ChapterPage() {
 	return (
 		<div>
       {HamburgerMenu(projects)}
-			<div className="mx-auto max-w-4xl p-8">
+			<div className="mx-auto max-w-31/32 p-4">
 				<h1 className="mb-4 text-2xl font-bold">{chapter?.name}</h1>
 				{entries.length === 0 ? (
 					<p className="text-gray-600">
@@ -111,7 +111,7 @@ export default function ChapterPage() {
 									<img
                     src={`${API_URL}/images/${entry.image}`}
 										alt=""
-										className="mb-2 place-self-center w-full h-auto max-w-[400px] max-h-[300px] object-contain"
+										className="mb-2 place-self-center w-full h-auto object-contain"
 									/>
 								)}
 							</div>
