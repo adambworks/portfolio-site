@@ -111,7 +111,7 @@ export default function EntriesPage() {
 									<img
                     src={`${API_URL}/images/${entry.image}`}
 										alt=""
-										className="mb-2 place-self-center w-full h-auto object-contain"
+										className="mb-2 mt-2 place-self-center w-full h-auto object-contain"
 									/>
 								)}
 							</div>
