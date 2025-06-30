@@ -44,7 +44,7 @@ function chapter_buttons(chapter: Chapter, slug: string, chapters: Chapter[]) {
 	);
 }
 
-export default function ChapterPage() {
+export default function EntriesPage() {
 	const { slug, chapterIndex } = useParams();
 	const [entries, setEntries] = useState<Entry[]>([]);
 	const [chapter, setChapter] = useState<Chapter | null>(null);

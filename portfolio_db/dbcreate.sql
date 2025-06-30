@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS projects (
     overview TEXT,
     slug TEXT UNIQUE NOT NULL,
     image TEXT,
-    chapter_descriptor TEXT --like section phase ect
+    chapter_descriptor TEXT 
 );
 
 -- Chapters table
@@ -23,8 +23,8 @@ CREATE TABLE IF NOT EXISTS entries (
     id SERIAL PRIMARY KEY,
     chapter_id INTEGER NOT NULL REFERENCES chapters(id) ON DELETE CASCADE,
     text TEXT,
-    image TEXT, -- could be a URL or file path
-    date DATE,  -- optional
+    image TEXT, 
+    date DATE,  
     index INTEGER NOT NULL
 
 );

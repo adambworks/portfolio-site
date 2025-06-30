@@ -18,7 +18,7 @@ function chapter_descriptor(project: Project, chapter_index: number) {
 	}
 }
 
-export default function ProjectDetailPage() {
+export default function ChaptersPage() {
 	const { slug } = useParams<{ slug: string }>();
 	const [project, setProject] = useState<Project | null>(null);
 	const [chapters, setChapters] = useState<Chapter[]>([]);

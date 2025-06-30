@@ -184,6 +184,8 @@
   },
   "active": "4b5534ca96fbcae2",
   "lastOpenFiles": [
+    "portfolio_front/src/pages/ChaptersPage.tsx",
+    "portfolio_front/src/pages/EntriesPage.tsx",
     "portfolio_back/target/debug/incremental/portfolio_back-18n8wd7x4c8zk/s-h8oyqkhaw3-07lcpx6-5h41ce69jvzobxbss693e08o5/work-products.bin",
     "portfolio_back/target/debug/incremental/portfolio_back-18n8wd7x4c8zk/s-h8oyqkhaw3-07lcpx6-5h41ce69jvzobxbss693e08o5/query-cache.bin",
     "portfolio_back/target/debug/incremental/portfolio_back-18n8wd7x4c8zk/s-h8oyqkhaw3-07lcpx6-5h41ce69jvzobxbss693e08o5/dep-graph.bin",
@@ -193,8 +195,6 @@
     "portfolio_back/target/debug/incremental/portfolio_back-0eypbckcizzgx/s-h8oyqkhhsm-1abpgnc-9pc8p6i9dnze311ad8ububtsm/work-products.bin",
     "portfolio_back/target/debug/incremental/portfolio_back-0eypbckcizzgx/s-h8oyqkhhsm-1abpgnc-9pc8p6i9dnze311ad8ububtsm",
     "portfolio_back/target/debug/deps/libactix_files-ce43ca56740e1c29.rmeta",
-    "portfolio_back/target/debug/incremental/portfolio_back-0eypbckcizzgx/s-h8oyqkhhsm-1abpgnc-working/work-products.bin",
-    "portfolio_back/target/debug/incremental/portfolio_back-0eypbckcizzgx/s-h8oyqkhhsm-1abpgnc-working/query-cache.bin",
     "portfolio_back/assets/images/usage.md",
     "portfolio_back/assets/images/rr_lockup_light.svg",
     "portfolio_back/assets/images/vite_logo.svg",

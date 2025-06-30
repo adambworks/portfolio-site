@@ -71,6 +71,20 @@ export default function HomePage() {
 				</a>
 			</section>
 
+
+
+      <section className="mb-1">
+				<h2 className="mb-2 text-2xl font-semibold">Git Repo</h2>
+				<a
+					href="https://gitea.bocktank.com/abock/portfolio-site"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="text-colore hover:underline"
+				>
+					Gitea: portfolio-site
+				</a>
+			</section>
+
 			<section>
 				<h2 className="mb-2 text-2xl font-semibold">Contact</h2>
 				<p>
