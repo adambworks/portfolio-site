@@ -15,8 +15,8 @@ export default function HomePage() {
 	return (
 		<div className="mx-auto max-w-fit p-24 ">
       {HamburgerMenu(projects)}
-			<h1 className="mb-4 text-4xl font-bold">My name is Adam Bock</h1>
-			<h1 className="mb-4 text-4xl font-bold">Welcome to My Portfolio</h1>
+			<h1 className="mb-4 text-4xl font-bold">Hi I'm Adam Bock</h1>
+			<h1 className="mb-4 text-4xl font-bold">I Build Things</h1>
 
 			<section className="mb-8">
 				<h2 className="mb-2 text-2xl font-semibold">About This Site</h2>
@@ -49,8 +49,8 @@ export default function HomePage() {
       <section>
       <h2 className="mb-2 text-2xl font-semibold ">My Domain</h2>
       <p className="text-colore">
-      my domain, bocktank.com, was orginally chosen for
-      use with my storage server, bock being my last name and tank as a stroage tank
+      My domain, bocktank.com, was orginally chosen for
+      use with my storage server, bock being my last name and tank as a stroage tank.
     </p>
 
       </section>

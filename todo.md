@@ -16,3 +16,4 @@
 - [ ] update logging 
 	- [x] figure out how i want to do logging
 	- [ ] add logging to all parts of site
+	- [ ] send to top of page on next button
