@@ -21,8 +21,8 @@ export default function HomePage() {
 			<section className="mb-8">
 				<h2 className="mb-2 text-2xl font-semibold">About This Site</h2>
 				<p className="text-colore">
-					This is a full-stack portfolio site built using Rust (Actix Web) for
-					the backend and React (Vite) for the frontend. It showcases a
+					This is a full-stack portfolio site built using Rust (with Actix Web and Diesel) for
+					the backend and React (with Vite React Router and Tailwind css) for the frontend. It showcases a
 					collection of projects, each with detailed chapters and entries that
 					walk through the development process. This site is both a technical
 					showcase and a place where I document my work and ideas.
