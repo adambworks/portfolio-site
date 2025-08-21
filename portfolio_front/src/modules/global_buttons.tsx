@@ -1,10 +1,12 @@
 import { useState } from "react";
 import type { Project } from "../structs/project";
 import { Link } from "react-router";
+import { useAuth } from "../context/AuthContext";
 
 export default function HamburgerMenu(projects: Project[]) {
 	//   const location = useLocation();
 	const [open, setOpen] = useState(false);
+	const { isAuthenticated, logout } = useAuth();
 
 	return (
 		<div className="text-colorc px-4 py-3">
@@ -15,6 +17,15 @@ export default function HamburgerMenu(projects: Project[]) {
 				>
 					☰
 				</button>
+				{isAuthenticated ? (
+					<button onClick={logout} className="text-colorc hover:underline">
+						Logout
+					</button>
+				) : (
+					<Link to="/login" className="text-colorc hover:underline">
+						Login
+					</Link>
+				)}
 			</div>
 
 			{open && (
