@@ -2,6 +2,7 @@ pub mod projects;
 pub mod chapters;
 pub mod entries;
 pub mod loggger;
+pub mod users;
 
 use diesel::pg::PgConnection;
 use diesel::r2d2::{self, ConnectionManager};

@@ -1,5 +1,5 @@
 use diesel::prelude::*;
-use chrono::NaiveDate;
+use chrono::{NaiveDate, NaiveDateTime};
 use crate::schema::*;
 use serde::Serialize;
 
@@ -41,6 +41,16 @@ pub struct Entry {
     pub index: i32
 }
 
+#[derive(Queryable, Selectable, Serialize, Identifiable)]
+#[diesel(table_name = users)]
+#[diesel(check_for_backend(diesel::pg::Pg))]
+pub struct User {
+    pub id: i32,
+    pub username: String,
+    pub password_hash: String,
+    pub created_at: NaiveDateTime,
+}
+
 //Insertion tables
 #[derive(Insertable)]
 #[diesel(table_name = projects)]
@@ -71,4 +81,11 @@ pub struct NewEntry<'a> {
     pub image: Option<&'a str>,
     pub date: Option<NaiveDate>,
     pub index: &'a i32
+}
+
+#[derive(Insertable)]
+#[diesel(table_name = users)]
+pub struct NewUser<'a> {
+    pub username: &'a str,
+    pub password_hash: &'a str,
 }

@@ -52,6 +52,8 @@ async fn main() -> std::io::Result<()> {
                 .service(self::routes::chapters::get_chapters_by_id)
                 .service(self::routes::chapters::get_chapter_by_slug_index)
                 .service(self::routes::entries::get_entries_by_id)
+               // .route("/register", web::post().to(routes::auth::register))
+                .route("/login", web::post().to(routes::auth::login))
             )
             .service(Files::new("/", "./static").index_file("index.html"))
             .default_service(web::route().to(spa_fallback))

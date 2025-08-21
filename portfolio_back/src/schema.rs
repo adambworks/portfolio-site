@@ -33,6 +33,15 @@ diesel::table! {
     }
 }
 
+diesel::table! {
+    users (id) {
+        id -> Int4,
+        username -> Varchar,
+        password_hash -> Varchar,
+        created_at -> Timestamp,
+    }
+}
+
 diesel::joinable!(chapters -> projects (project_id));
 diesel::joinable!(entries -> chapters (chapter_id));
 
@@ -40,4 +49,5 @@ diesel::allow_tables_to_appear_in_same_query!(
     chapters,
     entries,
     projects,
+    users,
 );
