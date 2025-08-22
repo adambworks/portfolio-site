@@ -4,8 +4,7 @@ This is a custom-built portfolio site using Rust (with Actix Web and Diesel) for
 
 The code is public, so theoretically, anyone could build this site for themselves and have their own portfolio site.
 
-## Live Site
-**[Your Website Here](https://adam.bocktank.com)**
+[![Website](https://img.shields.io/badge/Website-context7.com-blue)](https://context7.com) [![smithery badge](https://smithery.ai/badge/@upstash/context7-mcp)](https://adam.bocktank.com)
 
 ## Software Stack
 - **Backend:** Rust, Actix Web, Diesel
