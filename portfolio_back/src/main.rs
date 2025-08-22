@@ -10,11 +10,10 @@ use std::env;
 
 //actix imports
 use actix_cors::Cors;
-use actix_web::{http::header, middleware::Logger, web, App, HttpResponse, HttpServer, Responder};
+use actix_web::{http::header, middleware::Logger, web, App, HttpServer, Responder};
 use actix_files::Files;
-
-
-
+use actix_web_httpauth::middleware::HttpAuthentication;
+use crate::routes::auth_middleware::validator;
 
 async fn spa_fallback() -> impl Responder {
     actix_files::NamedFile::open("./static/index.html")
@@ -35,31 +34,45 @@ async fn main() -> std::io::Result<()> {
     let database_allowed_origin =  env::var("DATABASE_ALLOWED_ORGIN").expect("DATABASE_ALLOWED_ORGIN must be set");
     let bind_ip = env::var("BIND_IP").expect("BIND_IP must be set");
     HttpServer::new(move || {
-        let cors = Cors::default()
-            .allowed_origin(&database_allowed_origin)
-            .allowed_methods(vec!["GET", "POST", "PUT", "DELETE"])
-            .allowed_headers(vec![header::AUTHORIZATION, header::CONTENT_TYPE])
-            .supports_credentials();
+        let auth_middleware = HttpAuthentication::bearer(validator);
+
         App::new()
+            .wrap(
+                Cors::default()
+                    .allowed_origin(&database_allowed_origin)
+                    .allowed_methods(vec!["GET", "POST", "PUT", "DELETE"])
+                    .allowed_headers(vec![header::AUTHORIZATION, header::CONTENT_TYPE])
+                    .supports_credentials()
+            )
             .wrap(Logger::default())
             .app_data(web::Data::new(pool.clone()))
             
             .service(web::scope("/api")
-            .wrap(cors)
-                .service(self::routes::projects::list_projects)
-                .service(self::routes::projects::get_project_by_slug)
+                .service(routes::projects::list_projects)
+                .service(routes::projects::get_project_by_slug)
                 .service(Files::new("/images","./assets/images").show_files_listing())
-                .service(self::routes::chapters::get_chapters_by_id)
-                .service(self::routes::chapters::get_chapter_by_slug_index)
-                .service(self::routes::entries::get_entries_by_id)
-               // .route("/register", web::post().to(routes::auth::register))
+                .service(routes::chapters::get_chapters_by_id)
+                .service(routes::chapters::get_chapter_by_slug_index)
+                .service(routes::entries::get_entries_by_id)
+                .route("/register", web::post().to(routes::auth::register))
                 .route("/login", web::post().to(routes::auth::login))
+            )
+            .service(web::scope("/api/admin")
+                .wrap(auth_middleware)
+                .service(routes::projects::create_project)
+                .service(routes::projects::update_project)
+                .service(routes::projects::delete_project)
+                .service(routes::chapters::create_chapter)
+                .service(routes::chapters::update_chapter)
+                .service(routes::chapters::delete_chapter)
+                .service(routes::entries::create_entry)
+                .service(routes::entries::update_entry)
+                .service(routes::entries::delete_entry)
             )
             .service(Files::new("/", "./static").index_file("index.html"))
             .default_service(web::route().to(spa_fallback))
-            
     })
-    .bind((bind_ip,8080))?
+    .bind((bind_ip, 8080))?
     .run()
     .await
 }

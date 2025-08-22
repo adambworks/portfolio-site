@@ -1,12 +1,13 @@
 use diesel::prelude::*;
 use chrono::{NaiveDate, NaiveDateTime};
 use crate::schema::*;
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 
-#[derive(Queryable, Selectable, Serialize,Identifiable)]
+#[derive(Queryable, Selectable, Serialize, Deserialize, Identifiable)]
 #[diesel(table_name = projects)]
 #[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct Project {
+    #[serde(default)]
     pub id: i32,
     pub name: String,
     pub date_started: NaiveDate,
@@ -16,11 +17,12 @@ pub struct Project {
     pub chapter_descriptor: Option<String>
 }
 
-#[derive(Queryable, Selectable, Serialize, Associations,Identifiable)]
+#[derive(Queryable, Selectable, Serialize, Deserialize, Associations, Identifiable)]
 #[diesel(table_name = chapters)]
 #[diesel(check_for_backend(diesel::pg::Pg))]
 #[diesel(belongs_to(Project))]
 pub struct Chapter {
+    #[serde(default)]
     pub id: i32,
     pub project_id: i32,
     pub name: String,
@@ -28,11 +30,12 @@ pub struct Chapter {
     pub index: i32,
 }
 
-#[derive(Queryable, Selectable, Serialize, Associations,Identifiable)]
+#[derive(Queryable, Selectable, Serialize, Deserialize, Associations, Identifiable)]
 #[diesel(table_name = entries)]
 #[diesel(check_for_backend(diesel::pg::Pg))]
 #[diesel(belongs_to(Chapter))]
 pub struct Entry {
+    #[serde(default)]
     pub id: i32,
     pub chapter_id: i32,
     pub text: Option<String>,
@@ -52,35 +55,34 @@ pub struct User {
 }
 
 //Insertion tables
-#[derive(Insertable)]
+#[derive(Insertable, Deserialize)]
 #[diesel(table_name = projects)]
-pub struct NewProject<'a>{
-    pub name: &'a str,
-    pub date_started: &'a NaiveDate,
-    pub overview: Option<&'a str>,
-    pub slug: &'a str,
-    pub image: Option<&'a str>,
-    pub chapter_descriptor: Option<&'a str>
-
+pub struct NewProject {
+    pub name: String,
+    pub date_started: NaiveDate,
+    pub overview: Option<String>,
+    pub slug: String,
+    pub image: Option<String>,
+    pub chapter_descriptor: Option<String>,
 }
 
-#[derive(Insertable)]
+#[derive(Insertable, Deserialize)]
 #[diesel(table_name = chapters)]
-pub struct NewChapter<'a> {
+pub struct NewChapter {
     pub project_id: i32,
-    pub name: &'a str,
+    pub name: String,
     pub date_started: Option<NaiveDate>,
-    pub index: &'a i32,
+    pub index: i32,
 }
 
-#[derive(Insertable)]
+#[derive(Insertable, Deserialize)]
 #[diesel(table_name = entries)]
-pub struct NewEntry<'a> {
+pub struct NewEntry {
     pub chapter_id: i32,
-    pub text: &'a str,
-    pub image: Option<&'a str>,
+    pub text: Option<String>,
+    pub image: Option<String>,
     pub date: Option<NaiveDate>,
-    pub index: &'a i32
+    pub index: i32,
 }
 
 #[derive(Insertable)]
@@ -88,4 +90,33 @@ pub struct NewEntry<'a> {
 pub struct NewUser<'a> {
     pub username: &'a str,
     pub password_hash: &'a str,
+}
+
+// Structs for deserializing request bodies for updates
+#[derive(AsChangeset, Deserialize)]
+#[diesel(table_name = projects)]
+pub struct UpdateProject {
+    pub name: Option<String>,
+    pub date_started: Option<NaiveDate>,
+    pub overview: Option<String>,
+    pub slug: Option<String>,
+    pub image: Option<String>,
+    pub chapter_descriptor: Option<String>,
+}
+
+#[derive(AsChangeset, Deserialize)]
+#[diesel(table_name = chapters)]
+pub struct UpdateChapter {
+    pub name: Option<String>,
+    pub date_started: Option<NaiveDate>,
+    pub index: Option<i32>,
+}
+
+#[derive(AsChangeset, Deserialize)]
+#[diesel(table_name = entries)]
+pub struct UpdateEntry {
+    pub text: Option<String>,
+    pub image: Option<String>,
+    pub date: Option<NaiveDate>,
+    pub index: Option<i32>,
 }

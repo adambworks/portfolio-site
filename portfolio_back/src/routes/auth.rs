@@ -30,7 +30,7 @@ pub struct Claims {
 }
 
 // In a real application, this should be loaded from a secure configuration
-const JWT_SECRET: &[u8] = b"your-super-secret-key";
+pub const JWT_SECRET: &[u8] = b"your-super-secret-key";
 
 pub async fn register(
     pool: web::Data<DBPool>,
