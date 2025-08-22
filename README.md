@@ -4,7 +4,7 @@ This is a custom-built portfolio site using Rust (with Actix Web and Diesel) for
 
 The code is public, so theoretically, anyone could build this site for themselves and have their own portfolio site.
 
-[![Website](https://img.shields.io/badge/Website-adam.bocktank.com)](https://adam.bocktank.com)
+[![Website]()](https://adam.bocktank.com-purple)
 
 ## Software Stack
 - **Backend:** Rust, Actix Web, Diesel
