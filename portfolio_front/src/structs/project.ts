@@ -8,3 +8,12 @@ export type Project = {
   image: string | null;
   chapter_descriptor: string | null; 
 };
+
+export type NewProject = {
+  name: string;
+  slug: string;
+  date_started: string;
+  overview: string | null;
+  image: string | null;
+  chapter_descriptor: string | null;
+};

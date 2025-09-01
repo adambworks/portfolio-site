@@ -5,3 +5,10 @@ export interface Chapter {
     date_started: string | null;
     index: number;
   }
+  
+  export interface NewChapter {
+    project_id: number;
+    name: string;
+    date_started: string | null;
+    index: number;
+  }

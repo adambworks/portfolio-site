@@ -23,32 +23,43 @@ function LoginPage() {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
+    <div className="mx-auto max-w-md p-24">
+      <h1 className="mb-4 text-center text-4xl font-bold">Login</h1>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username</label>
+        <div className="mb-4">
+          <label htmlFor="username" className="mb-2 block text-colore">
+            Username
+          </label>
           <input
             type="text"
             id="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
+            className="w-full rounded border bg-gray-800 px-3 py-2 text-white"
           />
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
+        <div className="mb-6">
+          <label htmlFor="password" className="mb-2 block text-colore">
+            Password
+          </label>
           <input
             type="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            className="w-full rounded border bg-gray-800 px-3 py-2 text-white"
           />
         </div>
-        <button type="submit">Login</button>
+        <button
+          type="submit"
+          className="w-full rounded bg-colorb px-4 py-2 text-colorc transition hover:bg-colorb/70"
+        >
+          Login
+        </button>
       </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p className="mt-4 text-center text-red-500">{error}</p>}
     </div>
   );
 }
