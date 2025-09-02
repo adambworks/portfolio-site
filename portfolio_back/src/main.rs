@@ -57,6 +57,7 @@ async fn main() -> std::io::Result<()> {
                 .service(routes::entries::create_entry)
                 .service(routes::entries::update_entry)
             //    .service(routes::entries::delete_entry)
+                .service(routes::entries::upload_image)
             )
             .service(web::scope("/api")
                 .service(routes::projects::list_projects)

@@ -20,3 +20,14 @@ export const deleteEntry = async (id: number): Promise<void> => {
   await api.delete(`/admin/entries/${id}`);
 };
 
+export const uploadImage = async (image: File): Promise<string> => {
+  const formData = new FormData();
+  formData.append('image', image);
+  const response = await api.post('/admin/upload', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+  return response.data;
+};
+
