@@ -3,7 +3,7 @@ version: "3.9"
 services:
   db:
     #image: postgres:15
-    build: 
+    build:
       context: ./portfolio_db
       dockerfile: dockerfile
     container_name: my_postgres
@@ -24,10 +24,17 @@ services:
     depends_on:
       - db
     ports:
-      - "8080:8080"
-  #  volumes:
-   #   - ./backend/static:/app/static
+      - "8086:8080"
+    environment:
+      - JWT_SECRET_FILE=/run/secrets/jwt_secret
+    volumes:
+      - ./backend/static:/app/static
     restart: on-failure
+    secrets:
+      - jwt_secret
 
-volumes:
-  pgdata:
+
+
+secrets:
+  jwt_secret:
+    file: ./jwt_secret.txt

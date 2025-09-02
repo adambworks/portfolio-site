@@ -13,7 +13,7 @@ pub async fn validator(
 ) -> Result<ServiceRequest, (Error, ServiceRequest)> {
     log::info!("Validator is being called");
     let token = auth.token();
-    let decoding_key = DecodingKey::from_secret(JWT_SECRET);
+    let decoding_key = DecodingKey::from_secret(&JWT_SECRET);
     let validation = Validation::default();
 
     match decode::<Claims>(token, &decoding_key, &validation) {

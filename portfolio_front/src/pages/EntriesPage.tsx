@@ -8,6 +8,7 @@ import HamburgerMenu from "../modules/global_buttons";
 import type { Project } from "../structs/project";
 import { fetchProjects } from "../api/projects";
 import { useAuth } from "../context/AuthContext";
+import ConfirmationModal from "../modules/ConfirmationModal";
 
 function chapter_buttons(chapter: Chapter, slug: string, chapters: Chapter[]) {
   return (
@@ -47,6 +48,8 @@ export default function EntriesPage() {
   const [chapters, setChapters] = useState<Chapter[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
   const [editingEntry, setEditingEntry] = useState<Entry | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [entryToDelete, setEntryToDelete] = useState<number | null>(null);
   const { isAuthenticated } = useAuth();
   const API_URL = import.meta.env.VITE_API_URL;
 
@@ -85,9 +88,17 @@ export default function EntriesPage() {
     }
   };
 
-  const handleDelete = async (id: number) => {
-    await deleteEntry(id);
-    setEntries(entries.filter((e) => e.id !== id));
+  const handleDeleteClick = (id: number) => {
+    setEntryToDelete(id);
+    setIsModalOpen(true);
+  };
+
+  const confirmDelete = async () => {
+    if (entryToDelete !== null) {
+      await deleteEntry(entryToDelete);
+      setEntries(entries.filter((e) => e.id !== entryToDelete));
+      setEntryToDelete(null);
+    }
   };
 
   const handleCreate = async () => {
@@ -129,6 +140,12 @@ export default function EntriesPage() {
 
   return (
     <div>
+      <ConfirmationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onConfirm={confirmDelete}
+        message="Are you sure you want to delete this entry? This action cannot be undone."
+      />
       {HamburgerMenu(projects)}
       <div className="mx-auto max-w-31/32 p-4">
         <h1 className="mb-4 text-2xl font-bold">{chapter?.name}</h1>
@@ -193,7 +210,7 @@ export default function EntriesPage() {
                           Edit
                         </button>
                         <button
-                          onClick={() => handleDelete(entry.id)}
+                          onClick={() => handleDeleteClick(entry.id)}
                           className="rounded bg-red-500 px-4 py-2 text-white"
                         >
                           Delete

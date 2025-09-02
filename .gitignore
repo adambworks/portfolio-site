@@ -3,3 +3,4 @@ portfolio_back/target
 index.html
 portfolio_back/assets
 images
+jwt_secret.txt

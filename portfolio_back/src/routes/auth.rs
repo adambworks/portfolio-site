@@ -5,6 +5,9 @@ use serde::{Deserialize, Serialize};
 use crate::db::{users, DBPool};
 use crate::models::{NewUser, User};
 use chrono::{Utc, Duration};
+use lazy_static::lazy_static;
+use std::env;
+use std::fs;
 
 #[derive(Deserialize)]
 pub struct RegisterRequest {
@@ -29,8 +32,12 @@ pub struct Claims {
     pub exp: usize,
 }
 
-// In a real application, this should be loaded from a secure configuration
-pub const JWT_SECRET: &[u8] = b"your-super-secret-key";
+lazy_static! {
+    pub static ref JWT_SECRET: Vec<u8> = {
+        let secret_path = env::var("JWT_SECRET_FILE").expect("JWT_SECRET_FILE must be set");
+        fs::read(secret_path).expect("Should be able to read the secret file")
+    };
+}
 
 pub async fn register(
     pool: web::Data<DBPool>,
@@ -78,7 +85,7 @@ pub async fn login(
                 sub: user.username.clone(),
                 exp,
             };
-            let token = encode(&Header::default(), &claims, &EncodingKey::from_secret(JWT_SECRET)).unwrap();
+            let token = encode(&Header::default(), &claims, &EncodingKey::from_secret(&JWT_SECRET)).unwrap();
             HttpResponse::Ok().json(TokenResponse { token })
         }
         _ => HttpResponse::Unauthorized().json("Invalid username or password"),

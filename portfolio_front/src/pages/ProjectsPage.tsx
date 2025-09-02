@@ -4,10 +4,13 @@ import type { Project, NewProject } from "../structs/project";
 import { Link } from "react-router";
 import HamburgerMenu from "../modules/global_buttons";
 import { useAuth } from "../context/AuthContext";
+import ConfirmationModal from "../modules/ConfirmationModal";
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [editingProject, setEditingProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [projectToDelete, setProjectToDelete] = useState<number | null>(null);
   const { isAuthenticated } = useAuth();
   const API_URL = import.meta.env.VITE_API_URL;
 
@@ -27,9 +30,17 @@ export default function ProjectsPage() {
     }
   };
 
-  const handleDelete = async (id: number) => {
-    await deleteProject(id);
-    setProjects(projects.filter((p) => p.id !== id));
+  const handleDeleteClick = (id: number) => {
+    setProjectToDelete(id);
+    setIsModalOpen(true);
+  };
+
+  const confirmDelete = async () => {
+    if (projectToDelete !== null) {
+      await deleteProject(projectToDelete);
+      setProjects(projects.filter((p) => p.id !== projectToDelete));
+      setProjectToDelete(null);
+    }
   };
 
   const handleCreate = async () => {
@@ -49,6 +60,12 @@ export default function ProjectsPage() {
 
   return (
     <div className="mx-auto max-w-6xl p-4">
+      <ConfirmationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onConfirm={confirmDelete}
+        message="Are you sure you want to delete this project? This action cannot be undone."
+      />
       {HamburgerMenu(projects)}
       <h1 className="mb-6 text-2xl font-bold">Projects</h1>
       {isAuthenticated && (
@@ -104,7 +121,7 @@ export default function ProjectsPage() {
                     <button onClick={() => handleEdit(project)} className="mr-2 rounded bg-yellow-500 px-4 py-2 text-white">
                       Edit
                     </button>
-                    <button onClick={() => handleDelete(project.id)} className="rounded bg-red-500 px-4 py-2 text-white">
+                    <button onClick={() => handleDeleteClick(project.id)} className="rounded bg-red-500 px-4 py-2 text-white">
                       Delete
                     </button>
                   </div>

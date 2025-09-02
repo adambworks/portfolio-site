@@ -6,6 +6,7 @@ import type { Chapter, NewChapter } from "../structs/chapter";
 import { fetchChapters, updateChapter, deleteChapter, createChapter } from "../api/chapters";
 import HamburgerMenu from "../modules/global_buttons";
 import { useAuth } from "../context/AuthContext";
+import ConfirmationModal from "../modules/ConfirmationModal";
 
 function chapter_descriptor(project: Project, chapter_index: number) {
   if (project.chapter_descriptor != null) {
@@ -25,6 +26,8 @@ export default function ChaptersPage() {
   const [chapters, setChapters] = useState<Chapter[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
   const [editingChapter, setEditingChapter] = useState<Chapter | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [chapterToDelete, setChapterToDelete] = useState<number | null>(null);
   const { isAuthenticated } = useAuth();
   const API_URL = import.meta.env.VITE_API_URL;
 
@@ -55,9 +58,17 @@ export default function ChaptersPage() {
     }
   };
 
-  const handleDelete = async (id: number) => {
-    await deleteChapter(id);
-    setChapters(chapters.filter((c) => c.id !== id));
+  const handleDeleteClick = (id: number) => {
+    setChapterToDelete(id);
+    setIsModalOpen(true);
+  };
+
+  const confirmDelete = async () => {
+    if (chapterToDelete !== null) {
+      await deleteChapter(chapterToDelete);
+      setChapters(chapters.filter((c) => c.id !== chapterToDelete));
+      setChapterToDelete(null);
+    }
   };
 
   const handleCreate = async () => {
@@ -77,6 +88,12 @@ export default function ChaptersPage() {
 
   return (
     <div className="p-4">
+      <ConfirmationModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onConfirm={confirmDelete}
+        message="Are you sure you want to delete this chapter? This action cannot be undone."
+      />
       {HamburgerMenu(projects)}
 
       {project.image && (
@@ -127,7 +144,7 @@ export default function ChaptersPage() {
                     <button onClick={() => handleEdit(chapter)} className="mr-2 rounded bg-yellow-500 px-4 py-2 text-white">
                       Edit
                     </button>
-                    <button onClick={() => handleDelete(chapter.id)} className="rounded bg-red-500 px-4 py-2 text-white">
+                    <button onClick={() => handleDeleteClick(chapter.id)} className="rounded bg-red-500 px-4 py-2 text-white">
                       Delete
                     </button>
                   </div>
