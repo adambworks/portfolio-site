@@ -87,7 +87,7 @@ async fn main() -> std::io::Result<()> {
                 .service(routes::chapters::get_chapters_by_id)
                 .service(routes::chapters::get_chapter_by_slug_index)
                 .service(routes::entries::get_entries_by_id)
-                .route("/register", web::post().to(routes::auth::register))
+                //.route("/register", web::post().to(routes::auth::register))
                 .route("/login", web::post().to(routes::auth::login))
             )
           
