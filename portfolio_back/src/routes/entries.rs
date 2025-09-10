@@ -62,6 +62,9 @@ pub async fn delete_entry(
 
 #[post("/upload")]
 pub async fn upload_image(mut payload: Multipart) -> Result<HttpResponse, actix_web::Error> {
+    const MAX_FILE_SIZE: usize = 5 * 1024 * 1024; // 5MB
+    let allowed_extensions = ["png", "jpg", "jpeg", "gif"];
+
     let mut filename = String::new();
     let dir_path = "./assets/images";
     fs::create_dir_all(dir_path).map_err(|e| {
@@ -76,16 +79,25 @@ pub async fn upload_image(mut payload: Multipart) -> Result<HttpResponse, actix_
     
             if name == "image" {
                 let original_filename = content_disposition.get_filename().unwrap_or("file");
-                let extension = std::path::Path::new(original_filename)
-                    .extension()
-                    .and_then(std::ffi::OsStr::to_str)
-                    .unwrap_or("");
+                let sanitized_filename = sanitize_filename::sanitize(original_filename);
+                let path = std::path::Path::new(&sanitized_filename);
+                let extension = path.extension().and_then(std::ffi::OsStr::to_str).unwrap_or("");
+
+                if !allowed_extensions.contains(&extension.to_lowercase().as_str()) {
+                    return Ok(HttpResponse::BadRequest().body("Invalid file type"));
+                }
+
                 filename = format!("{}.{}", Uuid::new_v4(), extension);
                 let filepath = format!("{}/{}", dir_path, filename);
                 let mut f = web::block(|| std::fs::File::create(filepath)).await??;
+                let mut total_size = 0;
     
                 while let Some(chunk) = field.next().await {
-                    let data = chunk?.to_vec();
+                    let data = chunk?;
+                    total_size += data.len();
+                    if total_size > MAX_FILE_SIZE {
+                        return Ok(HttpResponse::BadRequest().body("File size limit exceeded"));
+                    }
                     f = web::block(move || f.write_all(&data).map(|_| f)).await??;
                 }
             }

@@ -7,10 +7,8 @@ services:
       context: ./portfolio_db
       dockerfile: dockerfile
     container_name: my_postgres
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: portfolio_db
+    env_file:
+      - ./docker.env
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
